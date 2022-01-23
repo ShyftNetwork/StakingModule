@@ -1,0 +1,16 @@
+node_modules/
+build/
+artifacts/
+cache/
+types/contracts/
+package-lock.json
+.env
+.vscode
+yarn-error.log
+yarn.lock
+.idea
+dist/
+deployments/localhost/
+contractsInfo.json
+coverage/
+coverage.json
