@@ -147,7 +147,7 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
 
   event RewardAdded(uint256 reward);
   event Staked(address indexed user, uint256 amount);
-  event Unbonded(address indexed user, uint256 amount, uint256 timestamp);
+  event Unbonded(address indexed user, uint256 amount, uint256 timestamp, uint256 id);
   event RewardPaid(address indexed user, uint256 reward);
   event RewardsDurationUpdated(uint256 newDuration);
   event RewardAmountUpdated(uint256 newRewardAmount);
@@ -224,7 +224,7 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
 
     unbondingDetailsForId[totalUnbondings] = currentUnbondingDetails;
 
-    emit Unbonded(msg.sender, amount, block.timestamp);
+    emit Unbonded(msg.sender, amount, block.timestamp, totalUnbondings);
   }
 
   /**
@@ -295,6 +295,7 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
       reward = rewardsAmount;
     } else if (marketAveragePrice <= currentPrice) { // reward based on dao multiplie
       uint256 daoMultiplier = shyftDao.getDaoMultiplier();
+      require(daoMultiplier > 0 && daoMultiplier <= 1 ether, "Wrong dao multiplier limits");
       reward = rewardsAmount.mul(daoMultiplier).div(1 ether);
     } else { // no rewards
       reward = 0;
@@ -349,6 +350,33 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
   function setLowestVotingBoundPrice(uint256 lowestVotingBoundPrice_) external onlyOwner {
     lowestVotingBoundPrice = lowestVotingBoundPrice_;
     emit LowestVotingBoundPriceUpdated(lowestVotingBoundPrice);
+  }
+
+  /**
+   * @notice setPriceFeeder
+   * @dev This function can be called by the owner to change the priceFeeder contract.
+   * @param priceFeeder_ The new priceFeeder address.
+   */
+  function setPriceFeeder(address priceFeeder_) external onlyOwner {
+    priceFeeder = IPriceFeeder(priceFeeder_);
+  }
+
+  /**
+   * @notice setShyftDao
+   * @dev This function can be called by the owner to change the shyftDao contract.
+   * @param shyftDao_ The new shyftDao address.
+   */
+  function setShyftDao(address shyftDao_) external onlyOwner {
+    shyftDao = IShyftDao(shyftDao_);
+  }
+
+  /**
+   * @notice setRewardsDistribution
+   * @dev This function can be called by the owner to change the rewardsDistribution address.
+   * @param rewardsDistribution_ The new rewardsDistribution address.
+   */
+  function setRewardsDistribution(address rewardsDistribution_) external onlyOwner {
+    rewardsDistribution = rewardsDistribution_;
   }
 
   /**

@@ -7,6 +7,5 @@ pragma solidity 0.7.6;
  */
 interface IPriceFeeder {
     function getCurrentPrice() external view returns (uint256);
-
     function getMarketAveragePrice() external view returns (uint256);
 }
