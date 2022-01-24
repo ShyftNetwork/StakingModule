@@ -59,10 +59,14 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
     uint256 remainingAmount;
     // The timestamp when unstaking is enabled for this unbonding.
     uint256 unstakeEnabledTimestamp;
+    // The index, in which the unbonding exists into the account's unbonding array.
+    uint256 indexIntoUnbondingArray;
   }
 
   // UnbondingId => UnbondingDetails.
   mapping(uint256 => UnbondingDetails) public unbondingDetailsForId;
+  // Staker => Unbonding ids array.
+  mapping(address => uint256[]) public unbondingIdsPerAddress;
   // The total amount of unbondings.
   uint256 public totalUnbondings;
 
@@ -217,10 +221,13 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
 
     totalUnbondings = totalUnbondings.add(1);
 
+    unbondingIdsPerAddress[msg.sender].push(totalUnbondings);
+
     UnbondingDetails memory currentUnbondingDetails;
     currentUnbondingDetails.account = msg.sender;
     currentUnbondingDetails.remainingAmount = amount;
     currentUnbondingDetails.unstakeEnabledTimestamp = block.timestamp.add(unbondingPeriod);
+    currentUnbondingDetails.indexIntoUnbondingArray = unbondingIdsPerAddress[msg.sender].length.sub(1);
 
     unbondingDetailsForId[totalUnbondings] = currentUnbondingDetails;
 
@@ -256,6 +263,18 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
 
     unbondingDetailsForId[unbondingId].remainingAmount =
       unbondingDetailsForId[unbondingId].remainingAmount.sub(amount);
+
+    if (unbondingDetailsForId[unbondingId].remainingAmount == 0) {
+      uint256 index = unbondingDetailsForId[unbondingId].indexIntoUnbondingArray;
+      uint256 length = unbondingIdsPerAddress[msg.sender].length;
+
+      uint256 unbondingIdToMove = unbondingIdsPerAddress[msg.sender][length.sub(1)];
+      unbondingIdsPerAddress[msg.sender][index] = unbondingIdToMove;
+      unbondingIdsPerAddress[msg.sender].pop();
+
+      // Case that rubbish remains in here, that does not play any role though.
+      unbondingDetailsForId[unbondingIdToMove].indexIntoUnbondingArray = index;
+    }
 
     emit Unstaked(unbondingId, amount);
 
