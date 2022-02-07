@@ -21,4 +21,8 @@ contract RewardsDistribution {
     function provideRewards() external {
         shyftStaking.notifyRewardAmount{value: REWARD_AMOUNT}();
     }
+
+    function getBalance() external view returns(uint256 balance) {
+        balance = address(this).balance;
+    }
 }

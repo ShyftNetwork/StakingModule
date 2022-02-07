@@ -19,7 +19,7 @@ const config: HardhatUserConfig = {
     hardhat: {
       // forking: {
       //   url: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_KEY}`,
-      //   blockNumber: 11589707,
+      //   blockNumber: 10000000,
       // },
       allowUnlimitedContractSize: true,
     },
@@ -101,6 +101,13 @@ const config: HardhatUserConfig = {
   namedAccounts: {
     deployer: 0,
     proxyOwner: 1,
+    normalStaker1: 2,
+    normalStaker2: 3,
+    normalStaker3: 4,
+    prePurchaser1: 5,
+    prePurchaser2: 6,
+    prePurchaser3: 7,
+    rewardProvider: 8,
   },
   paths: {
     artifacts: './artifacts',

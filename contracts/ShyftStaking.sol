@@ -18,12 +18,12 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
   uint256 public periodFinish;
   // The reward rate for current period.
   uint256 public rewardRate;
-  // The norma; amount of rewards to be provided every period.
+  // The normal amount of rewards to be provided every period.
   uint256 public rewardsAmount;
   // The duration of a period.
   uint256 public rewardsDuration;
   // The time needed to be able to unstake after calling unbond.
-  uint256 public unbondingPeriod = 28 days;
+  uint256 public unbondingPeriod;
   // The timestamp that the rewards were updated.
   uint256 public lastUpdateTime;
   // The reward amount for every Shft that is staked.
@@ -84,7 +84,7 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
   uint256 public totalPrePurchasersAmountToBeStaked;
 
   // True if prepurchasers mode is on, false otherwise.
-  bool prePurchasersModeOn = true;
+  bool prePurchasersModeOn;
 
   /**
    * @notice Initialize the contract.
@@ -116,6 +116,9 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
     rewardsDuration = rewardsDuration_;
     rewardsAmount = rewardsAmount_;
     lowestVotingBoundPrice = lowestVotingBoundPrice_;
+
+    prePurchasersModeOn = true;
+    unbondingPeriod = 28 days;
   }
 
   /* ======================================================= MODIFIERS ====================================================== */
@@ -138,7 +141,7 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
 
   modifier onlyAfterRelease() {
     require(block.timestamp >= prePurchasersReleaseTimestamp,
-      "Cannot withdraw yet");
+      "Cannot do this action yet");
     _;
   }
 
@@ -213,25 +216,8 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
    * @notice This function can only be called after prepurchasers' release happens.
    * @param amount The amount to be unbonded.
    */
-  function unbond(uint256 amount) public nonReentrant onlyAfterRelease updateReward(msg.sender) {
-    require(amount > 0, "Cannot unbond 0");
-
-    _totalSupply = _totalSupply.sub(amount);
-    _balances[msg.sender] = _balances[msg.sender].sub(amount);
-
-    totalUnbondings = totalUnbondings.add(1);
-
-    unbondingIdsPerAddress[msg.sender].push(totalUnbondings);
-
-    UnbondingDetails memory currentUnbondingDetails;
-    currentUnbondingDetails.account = msg.sender;
-    currentUnbondingDetails.remainingAmount = amount;
-    currentUnbondingDetails.unstakeEnabledTimestamp = block.timestamp.add(unbondingPeriod);
-    currentUnbondingDetails.indexIntoUnbondingArray = unbondingIdsPerAddress[msg.sender].length.sub(1);
-
-    unbondingDetailsForId[totalUnbondings] = currentUnbondingDetails;
-
-    emit Unbonded(msg.sender, amount, block.timestamp, totalUnbondings);
+  function unbond(uint256 amount) external nonReentrant onlyAfterRelease updateReward(msg.sender) {
+    _unbond(amount);
   }
 
   /**
@@ -239,9 +225,9 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
    * @dev This function is used by users to unbond their whole stake.
    * @notice This function can only be called after prepurchasers' release happens.
    */
-  function unbondAll() external {
-    unbond(_balances[msg.sender]);
-    getReward();
+  function unbondAll() external nonReentrant onlyAfterRelease updateReward(msg.sender) {
+    _unbond(_balances[msg.sender]);
+    _getReward();
   }
 
   /**
@@ -286,14 +272,8 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
    * @dev This function is used by users to get their rewards.
    * @notice This function can only be called after prepurchasers' release happens.
    */
-  function getReward() public nonReentrant onlyAfterRelease updateReward(msg.sender) {
-    uint256 reward = rewards[msg.sender];
-    if (reward > 0) {
-      rewards[msg.sender] = 0;
-      msg.sender.transfer(reward);
-
-      emit RewardPaid(msg.sender, reward);
-    }
+  function getReward() external nonReentrant onlyAfterRelease updateReward(msg.sender) {
+    _getReward();
   }
 
   /* ================================================= RESTRICTED FUNCTIONS ================================================= */
@@ -433,15 +413,51 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
    * @notice After that function is called prepurchasers that have not yet staked are losing
    * @notice already farmed rewards, which are returned back to the rewardsDistribution contract.
    */
-  function finishPrePurchasersMode() external onlyOwner onlyPrePurchaserModeOn {
+  function finishPrePurchasersMode() external onlyOwner onlyAfterRelease onlyPrePurchaserModeOn {
     prePurchasersModeOn = false;
 
     uint256 rewardsToBeReturned = totalPrePurchasersAmountToBeStaked.mul(rewardPerShft()).div(1e18);
-    _totalSupply = _totalSupply.sub(totalPrePurchasersAmountToBeStaked);
+    uint256 newTotalSupply = _totalSupply.sub(totalPrePurchasersAmountToBeStaked);
+    rewardRate = rewardRate.mul(newTotalSupply).div(_totalSupply);
+    _totalSupply = newTotalSupply;
 
     address(uint160(rewardsDistribution)).transfer(rewardsToBeReturned);
 
     emit PrepurchasersModeFinished(rewardsToBeReturned);
+  }
+
+  /* ======================================================= INTERNALS ====================================================== */
+
+  function _unbond(uint256 amount_) internal {
+    require(amount_ > 0, "Cannot unbond 0");
+    require(_balances[msg.sender] >= amount_, "Cannot unbond more than staked");
+
+    _totalSupply = _totalSupply.sub(amount_);
+    _balances[msg.sender] = _balances[msg.sender].sub(amount_);
+
+    totalUnbondings = totalUnbondings.add(1);
+
+    unbondingIdsPerAddress[msg.sender].push(totalUnbondings);
+
+    UnbondingDetails memory currentUnbondingDetails;
+    currentUnbondingDetails.account = msg.sender;
+    currentUnbondingDetails.remainingAmount = amount_;
+    currentUnbondingDetails.unstakeEnabledTimestamp = block.timestamp.add(unbondingPeriod);
+    currentUnbondingDetails.indexIntoUnbondingArray = unbondingIdsPerAddress[msg.sender].length.sub(1);
+
+    unbondingDetailsForId[totalUnbondings] = currentUnbondingDetails;
+
+    emit Unbonded(msg.sender, amount_, block.timestamp, totalUnbondings);
+  }
+
+  function _getReward() internal {    
+    uint256 reward = rewards[msg.sender];
+    if (reward > 0) {
+      rewards[msg.sender] = 0;
+      msg.sender.transfer(reward);
+
+      emit RewardPaid(msg.sender, reward);
+    }
   }
 
   /* ========================================================= VIEWS ======================================================== */
