@@ -264,7 +264,8 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
 
     emit Unstaked(unbondingId, amount);
 
-    msg.sender.transfer(amount);
+    (bool sent,) = msg.sender.call{value: amount}("");
+    require(sent, "Failed to send Ether");
   }
 
   /**
@@ -313,7 +314,8 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
 
     emit RewardAdded(reward);
 
-    msg.sender.transfer(msg.value.sub(reward));
+    (bool sent,) = msg.sender.call{value: msg.value.sub(reward)}("");
+    require(sent, "Failed to send Ether");
   }
 
   /**
@@ -421,7 +423,8 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
     rewardRate = rewardRate.mul(newTotalSupply).div(_totalSupply);
     _totalSupply = newTotalSupply;
 
-    address(uint160(rewardsDistribution)).transfer(rewardsToBeReturned);
+    (bool sent,) = rewardsDistribution.call{value: rewardsToBeReturned}("");
+    require(sent, "Failed to send Ether");
 
     emit PrepurchasersModeFinished(rewardsToBeReturned);
   }
@@ -454,7 +457,9 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
     uint256 reward = rewards[msg.sender];
     if (reward > 0) {
       rewards[msg.sender] = 0;
-      msg.sender.transfer(reward);
+
+      (bool sent,) = msg.sender.call{value: reward}("");
+      require(sent, "Failed to send Ether");
 
       emit RewardPaid(msg.sender, reward);
     }
