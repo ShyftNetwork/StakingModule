@@ -497,6 +497,9 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
   }
 
   function rewardPerShft() public view returns (uint256) {
+    if (lastUpdateTime == 0) {
+      return 0;
+    }
     if (_totalSupply == 0) {
       return rewardPerShftStored;
     }
