@@ -85,7 +85,7 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
   uint256 public totalPrePurchasersAmountToBeStaked;
 
   // True if prepurchasers mode is on, false otherwise.
-  bool prePurchasersModeOn;
+  bool public prePurchasersModeOn;
 
   /**
    * @notice Initialize the contract.
