@@ -24,7 +24,7 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
   // The duration of a period.
   uint256 public rewardsDuration;
   // The time needed to be able to unstake after calling unbond.
-  uint256 public unbondingPeriod;
+  uint256 public constant unbondingPeriod = 28 days;
   // The timestamp that the rewards were updated.
   uint256 public lastUpdateTime;
   // The reward amount for every Shft that is staked.
@@ -119,7 +119,6 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
     lowestVotingBoundPrice = lowestVotingBoundPrice_;
 
     prePurchasersModeOn = true;
-    unbondingPeriod = 28 days;
   }
 
   /* ======================================================= MODIFIERS ====================================================== */
