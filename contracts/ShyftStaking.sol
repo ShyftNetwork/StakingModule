@@ -7,6 +7,7 @@ import "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
 import "@openzeppelin/contracts/math/SafeMath.sol";
 import {IShyftDao} from './interfaces/IShyftDao.sol';
 import {IPriceFeeder} from './interfaces/IPriceFeeder.sol';
+import "hardhat/console.sol";
 
 /**
  * @title ShyftStaking Contract
@@ -264,6 +265,12 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
 
     emit Unstaked(unbondingId, amount);
 
+    if (prePurchasersModeOn) {
+      require(amount <= address(this).balance.sub(_totalSupply.sub(totalPrePurchasersAmountToBeStaked)), "Wrong Amount");
+    } else {
+      require(amount <= address(this).balance.sub(_totalSupply), "Wrong Amount");
+    }
+
     (bool sent,) = msg.sender.call{value: amount}("");
     require(sent, "Failed to send Ether");
   }
@@ -419,6 +426,8 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
     prePurchasersModeOn = false;
 
     uint256 rewardsToBeReturned = totalPrePurchasersAmountToBeStaked.mul(rewardPerShft()).div(1e18);
+    require(rewardsToBeReturned <= address(this).balance.sub(_totalSupply.sub(totalPrePurchasersAmountToBeStaked)), "Wrong Amount");
+
     uint256 newTotalSupply = _totalSupply.sub(totalPrePurchasersAmountToBeStaked);
     rewardRate = rewardRate.mul(newTotalSupply).div(_totalSupply);
     _totalSupply = newTotalSupply;
@@ -457,6 +466,12 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
     uint256 reward = rewards[msg.sender];
     if (reward > 0) {
       rewards[msg.sender] = 0;
+
+      if (prePurchasersModeOn) {
+        require(reward <= address(this).balance.sub(_totalSupply.sub(totalPrePurchasersAmountToBeStaked)), "Wrong Amount");
+      } else {
+        require(reward <= address(this).balance.sub(_totalSupply), "Wrong Amount");
+      }
 
       (bool sent,) = msg.sender.call{value: reward}("");
       require(sent, "Failed to send Ether");
