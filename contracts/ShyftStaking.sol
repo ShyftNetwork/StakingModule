@@ -423,6 +423,8 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
    * @notice already farmed rewards, which are returned back to the rewardsDistribution contract.
    */
   function finishPrePurchasersMode() external onlyOwner onlyAfterRelease onlyPrePurchaserModeOn {
+    require(lastUpdateTime > 0, "Cannot finish prepurchasers mode yet");
+
     prePurchasersModeOn = false;
 
     uint256 rewardsToBeReturned = totalPrePurchasersAmountToBeStaked.mul(rewardPerShft()).div(1e18);
