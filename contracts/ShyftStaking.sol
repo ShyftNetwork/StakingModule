@@ -491,4 +491,24 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
   function getRewardForDuration() external view returns (uint256) {
     return rewardRate.mul(rewardsDuration);
   }
+
+  function getUnbondingIdsLength(address account) external view returns (uint256) {
+    return unbondingIdsPerAddress[account].length;
+  }
+
+  function getUnbondingIds(address account, uint256 offset, uint256 size) external view returns (uint256[] memory, uint256) {
+    uint256 length = size;
+    uint256 unbondingIdsLength = unbondingIdsPerAddress[account].length;
+
+    if (length > unbondingIdsLength - offset) {
+      length = unbondingIdsLength - offset;
+    }
+
+    uint256[] memory unbondingIds = new uint256[](length);
+    for (uint256 i = 0; i < length; i++) {
+      unbondingIds[i] = unbondingIdsPerAddress[account][i + offset];
+    }
+
+    return (unbondingIds, offset + length);
+  }
 }
