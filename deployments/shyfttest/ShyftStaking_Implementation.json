@@ -1,0 +1,1452 @@
+{
+  "address": "0xD0d50177190621E190D5C50010D1EFf521397A48",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newLowestVotingBoundPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "LowestVotingBoundPriceUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "prePurchaser",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "PrePurchaserAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "prePurchaser",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "PrePurchaserStaked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amountOfRewardsReturned",
+          "type": "uint256"
+        }
+      ],
+      "name": "PrepurchasersModeFinished",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "reward",
+          "type": "uint256"
+        }
+      ],
+      "name": "RewardAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newRewardAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "RewardAmountUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "reward",
+          "type": "uint256"
+        }
+      ],
+      "name": "RewardPaid",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newDuration",
+          "type": "uint256"
+        }
+      ],
+      "name": "RewardsDurationUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Staked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "name": "Unbonded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "unbondingId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Unstaked",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "prePurchasers",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "amounts",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "addPrePurchasers",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "earned",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "finishPrePurchasersMode",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getReward",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getRewardForDuration",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "offset",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "size",
+          "type": "uint256"
+        }
+      ],
+      "name": "getUnbondingIds",
+      "outputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "getUnbondingIdsLength",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "rewardsDistribution_",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "shyftDao_",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "priceFeeder_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "prePurchasersReleaseTimestamp_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "rewardsDuration_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "rewardsAmount_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "lowestVotingBoundPrice_",
+          "type": "uint256"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lastTimeRewardApplicable",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lastUpdateTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lowestVotingBoundPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "notifyRewardAmount",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "periodFinish",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "prePurchasersDetails",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "amountAdded",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "staked",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "prePurchasersReleaseTimestamp",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "priceFeeder",
+      "outputs": [
+        {
+          "internalType": "contract IPriceFeeder",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardPerShft",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardPerShftStored",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardRate",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "rewards",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardsAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardsDistribution",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardsDuration",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "lowestVotingBoundPrice_",
+          "type": "uint256"
+        }
+      ],
+      "name": "setLowestVotingBoundPrice",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "priceFeeder_",
+          "type": "address"
+        }
+      ],
+      "name": "setPriceFeeder",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "rewardsAmount_",
+          "type": "uint256"
+        }
+      ],
+      "name": "setRewardsAmount",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "rewardsDistribution_",
+          "type": "address"
+        }
+      ],
+      "name": "setRewardsDistribution",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "rewardsDuration_",
+          "type": "uint256"
+        }
+      ],
+      "name": "setRewardsDuration",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "shyftDao_",
+          "type": "address"
+        }
+      ],
+      "name": "setShyftDao",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "shyftDao",
+      "outputs": [
+        {
+          "internalType": "contract IShyftDao",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "stake",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "stakePrePurchaser",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalPrePurchasersAmountToBeStaked",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalUnbondings",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "unbond",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unbondAll",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "unbondingDetailsForId",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "remainingAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "unstakeEnabledTimestamp",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "indexIntoUnbondingArray",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "unbondingIdsPerAddress",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unbondingPeriod",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "unbondingId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "unstake",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "userRewardPerShftPaid",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xf91733a4c2e7e2b798140b9246906b457b2bbd665c3e5c3c00e538a9aea7cfe2",
+  "receipt": {
+    "to": null,
+    "from": "0x9De5B00012A27b3efd50d5B90bF2e07413cED178",
+    "contractAddress": "0xD0d50177190621E190D5C50010D1EFf521397A48",
+    "transactionIndex": 0,
+    "gasUsed": "2768582",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x94ad48e5007118c3d9a08620a32859ed010683e384d7c7d1b681e35d6ae6ed1c",
+    "transactionHash": "0xf91733a4c2e7e2b798140b9246906b457b2bbd665c3e5c3c00e538a9aea7cfe2",
+    "logs": [],
+    "blockNumber": 2876486,
+    "cumulativeGasUsed": "2768582",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "solcInputHash": "97607ecd07fd957c3cd3d061806fb1be",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newLowestVotingBoundPrice\",\"type\":\"uint256\"}],\"name\":\"LowestVotingBoundPriceUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"prePurchaser\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"PrePurchaserAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"prePurchaser\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"PrePurchaserStaked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amountOfRewardsReturned\",\"type\":\"uint256\"}],\"name\":\"PrepurchasersModeFinished\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"reward\",\"type\":\"uint256\"}],\"name\":\"RewardAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newRewardAmount\",\"type\":\"uint256\"}],\"name\":\"RewardAmountUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"reward\",\"type\":\"uint256\"}],\"name\":\"RewardPaid\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newDuration\",\"type\":\"uint256\"}],\"name\":\"RewardsDurationUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Staked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"Unbonded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"unbondingId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Unstaked\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"prePurchasers\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"name\":\"addPrePurchasers\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"earned\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"finishPrePurchasersMode\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getRewardForDuration\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"offset\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"size\",\"type\":\"uint256\"}],\"name\":\"getUnbondingIds\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"getUnbondingIdsLength\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"rewardsDistribution_\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"shyftDao_\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"priceFeeder_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"prePurchasersReleaseTimestamp_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"rewardsDuration_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"rewardsAmount_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lowestVotingBoundPrice_\",\"type\":\"uint256\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastTimeRewardApplicable\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastUpdateTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lowestVotingBoundPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"notifyRewardAmount\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"periodFinish\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"prePurchasersDetails\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountAdded\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"staked\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"prePurchasersReleaseTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"priceFeeder\",\"outputs\":[{\"internalType\":\"contract IPriceFeeder\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"rewardPerShft\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"rewardPerShftStored\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"rewardRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"rewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"rewardsAmount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"rewardsDistribution\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"rewardsDuration\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"lowestVotingBoundPrice_\",\"type\":\"uint256\"}],\"name\":\"setLowestVotingBoundPrice\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"priceFeeder_\",\"type\":\"address\"}],\"name\":\"setPriceFeeder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"rewardsAmount_\",\"type\":\"uint256\"}],\"name\":\"setRewardsAmount\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"rewardsDistribution_\",\"type\":\"address\"}],\"name\":\"setRewardsDistribution\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"rewardsDuration_\",\"type\":\"uint256\"}],\"name\":\"setRewardsDuration\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"shyftDao_\",\"type\":\"address\"}],\"name\":\"setShyftDao\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"shyftDao\",\"outputs\":[{\"internalType\":\"contract IShyftDao\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"stake\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"stakePrePurchaser\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalPrePurchasersAmountToBeStaked\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalUnbondings\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"unbond\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unbondAll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"unbondingDetailsForId\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"remainingAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"unstakeEnabledTimestamp\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"indexIntoUnbondingArray\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"unbondingIdsPerAddress\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unbondingPeriod\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"unbondingId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"unstake\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"userRewardPerShftPaid\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"addPrePurchasers(address[],uint256[])\":{\"details\":\"This function can be called by the owner to add prepurchasers.\",\"params\":{\"amounts\":\"The array of the amounts to be added for each prepurchaser.\",\"prePurchasers\":\"The array of the prepurchasers' addresses to be added.\"}},\"finishPrePurchasersMode()\":{\"details\":\"This function can be called by the owner to finish the prepurchasers mode.\"},\"getReward()\":{\"details\":\"This function is used by users to get their rewards.\"},\"initialize(address,address,address,uint256,uint256,uint256,uint256)\":{\"params\":{\"lowestVotingBoundPrice_\":\"The lowest voting bound price for SHFT.\",\"prePurchasersReleaseTimestamp_\":\"The timestamp at which the pre purchasers amounts are released\",\"priceFeeder_\":\"The address of the priceFeeder contract.\",\"rewardsAmount_\":\"The normal amount provided as reward every period.\",\"rewardsDistribution_\":\"The address of the rewardsDistribution contract.\",\"rewardsDuration_\":\"The duration of a period.\",\"shyftDao_\":\"The address of the shyftDao contract.\"}},\"notifyRewardAmount()\":{\"details\":\"This function can only be called by rewardsDistribution contract to provide rewards.\"},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"setLowestVotingBoundPrice(uint256)\":{\"details\":\"This function can be called by the owner to change the lowest voting bound price.\",\"params\":{\"lowestVotingBoundPrice_\":\"The new lowest voting bound price.\"}},\"setPriceFeeder(address)\":{\"details\":\"This function can be called by the owner to change the priceFeeder contract.\",\"params\":{\"priceFeeder_\":\"The new priceFeeder address.\"}},\"setRewardsAmount(uint256)\":{\"details\":\"This function can be called by the owner to change the normal rewards amount.\",\"params\":{\"rewardsAmount_\":\"The new rewards amount.\"}},\"setRewardsDistribution(address)\":{\"details\":\"This function can be called by the owner to change the rewardsDistribution address.\",\"params\":{\"rewardsDistribution_\":\"The new rewardsDistribution address.\"}},\"setRewardsDuration(uint256)\":{\"details\":\"This function can be called by the owner to change the rewards period.\",\"params\":{\"rewardsDuration_\":\"The new rewards duration.\"}},\"setShyftDao(address)\":{\"details\":\"This function can be called by the owner to change the shyftDao contract.\",\"params\":{\"shyftDao_\":\"The new shyftDao address.\"}},\"stake()\":{\"details\":\"This function is used by users to stake.\"},\"stakePrePurchaser()\":{\"details\":\"This function is used by prepurchasers so that they can add the amount needed to be eligiblefor already farmed rewards.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"},\"unbond(uint256)\":{\"details\":\"This function is used by users to unbond part of their stake.\",\"params\":{\"amount\":\"The amount to be unbonded.\"}},\"unbondAll()\":{\"details\":\"This function is used by users to unbond their whole stake.\"},\"unstake(uint256,uint256)\":{\"details\":\"This function is used by users to unstake their unbonded stakes.\",\"params\":{\"amount\":\"The amount from the unbonding id, which user would like to unstake.\",\"unbondingId\":\"The unbondingId from which user would like to unstake.\"}}},\"title\":\"ShyftStaking Contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"addPrePurchasers(address[],uint256[])\":{\"notice\":\"AddPrePurchasersCan only be called before any rewards have been provided.Careful on inputs creation, prepurchasers already added cannot be added again.\"},\"finishPrePurchasersMode()\":{\"notice\":\"FinishPrePurchasersModeAfter that function is called prepurchasers that have not yet staked are losingalready farmed rewards, which are returned back to the rewardsDistribution contract.\"},\"getReward()\":{\"notice\":\"GetRewardThis function can only be called after prepurchasers' release happens.\"},\"initialize(address,address,address,uint256,uint256,uint256,uint256)\":{\"notice\":\"Initialize the contract.\"},\"notifyRewardAmount()\":{\"notice\":\"NotifyRewardAmount\"},\"setLowestVotingBoundPrice(uint256)\":{\"notice\":\"SetLowestVotingBoundPrice\"},\"setPriceFeeder(address)\":{\"notice\":\"setPriceFeeder\"},\"setRewardsAmount(uint256)\":{\"notice\":\"SetRewardsAmount\"},\"setRewardsDistribution(address)\":{\"notice\":\"setRewardsDistribution\"},\"setRewardsDuration(uint256)\":{\"notice\":\"SetRewardsDurationCan only be called after previous rewards period has finished.\"},\"setShyftDao(address)\":{\"notice\":\"setShyftDao\"},\"stake()\":{\"notice\":\"StakePrepurchasers cannot stake till the prepurchasers mode goes off.\"},\"stakePrePurchaser()\":{\"notice\":\"Stake for prepurchasersPrepurchasers can only use this function after their release and only if prepurchasers mode is on.\"},\"unbond(uint256)\":{\"notice\":\"UnbondThis function can only be called after prepurchasers' release happens.\"},\"unbondAll()\":{\"notice\":\"UnbondAllThis function can only be called after prepurchasers' release happens.\"},\"unstake(uint256,uint256)\":{\"notice\":\"UnstakeThis function is associated with an unbonding id generated from the unbond function.Must have passed at least time equal to unbondingPeriod between unbond and unstakefor users to be able to unstake.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/ShyftStaking.sol\":\"ShyftStaking\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\nimport \\\"../utils/ContextUpgradeable.sol\\\";\\nimport \\\"../proxy/Initializable.sol\\\";\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * By default, the owner account will be the one that deploys the contract. This\\n * can later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract OwnableUpgradeable is Initializable, ContextUpgradeable {\\n    address private _owner;\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the deployer as the initial owner.\\n     */\\n    function __Ownable_init() internal initializer {\\n        __Context_init_unchained();\\n        __Ownable_init_unchained();\\n    }\\n\\n    function __Ownable_init_unchained() internal initializer {\\n        address msgSender = _msgSender();\\n        _owner = msgSender;\\n        emit OwnershipTransferred(address(0), msgSender);\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        return _owner;\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        require(owner() == _msgSender(), \\\"Ownable: caller is not the owner\\\");\\n        _;\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions anymore. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby removing any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        emit OwnershipTransferred(_owner, address(0));\\n        _owner = address(0);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        require(newOwner != address(0), \\\"Ownable: new owner is the zero address\\\");\\n        emit OwnershipTransferred(_owner, newOwner);\\n        _owner = newOwner;\\n    }\\n    uint256[49] private __gap;\\n}\\n\",\"keccak256\":\"0xb419e68addcb82ecda3ad3974b0d2db76435ce9b08435a04d5b119a0c5d45ea5\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/proxy/Initializable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\n// solhint-disable-next-line compiler-version\\npragma solidity >=0.4.24 <0.8.0;\\n\\nimport \\\"../utils/AddressUpgradeable.sol\\\";\\n\\n/**\\n * @dev This is a base contract to aid in writing upgradeable contracts, or any kind of contract that will be deployed\\n * behind a proxy. Since a proxied contract can't have a constructor, it's common to move constructor logic to an\\n * external initializer function, usually called `initialize`. It then becomes necessary to protect this initializer\\n * function so it can only be called once. The {initializer} modifier provided by this contract will have this effect.\\n *\\n * TIP: To avoid leaving the proxy in an uninitialized state, the initializer function should be called as early as\\n * possible by providing the encoded function call as the `_data` argument to {UpgradeableProxy-constructor}.\\n *\\n * CAUTION: When used with inheritance, manual care must be taken to not invoke a parent initializer twice, or to ensure\\n * that all initializers are idempotent. This is not verified automatically as constructors are by Solidity.\\n */\\nabstract contract Initializable {\\n\\n    /**\\n     * @dev Indicates that the contract has been initialized.\\n     */\\n    bool private _initialized;\\n\\n    /**\\n     * @dev Indicates that the contract is in the process of being initialized.\\n     */\\n    bool private _initializing;\\n\\n    /**\\n     * @dev Modifier to protect an initializer function from being invoked twice.\\n     */\\n    modifier initializer() {\\n        require(_initializing || _isConstructor() || !_initialized, \\\"Initializable: contract is already initialized\\\");\\n\\n        bool isTopLevelCall = !_initializing;\\n        if (isTopLevelCall) {\\n            _initializing = true;\\n            _initialized = true;\\n        }\\n\\n        _;\\n\\n        if (isTopLevelCall) {\\n            _initializing = false;\\n        }\\n    }\\n\\n    /// @dev Returns true if and only if the function is running in the constructor\\n    function _isConstructor() private view returns (bool) {\\n        return !AddressUpgradeable.isContract(address(this));\\n    }\\n}\\n\",\"keccak256\":\"0xd8e4eb08dcc1d1860fb347ba5ffd595242b9a1b66d49a47f2b4cb51c3f35017e\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.2 <0.8.0;\\n\\n/**\\n * @dev Collection of functions related to the address type\\n */\\nlibrary AddressUpgradeable {\\n    /**\\n     * @dev Returns true if `account` is a contract.\\n     *\\n     * [IMPORTANT]\\n     * ====\\n     * It is unsafe to assume that an address for which this function returns\\n     * false is an externally-owned account (EOA) and not a contract.\\n     *\\n     * Among others, `isContract` will return false for the following\\n     * types of addresses:\\n     *\\n     *  - an externally-owned account\\n     *  - a contract in construction\\n     *  - an address where a contract will be created\\n     *  - an address where a contract lived, but was destroyed\\n     * ====\\n     */\\n    function isContract(address account) internal view returns (bool) {\\n        // This method relies on extcodesize, which returns 0 for contracts in\\n        // construction, since the code is only stored at the end of the\\n        // constructor execution.\\n\\n        uint256 size;\\n        // solhint-disable-next-line no-inline-assembly\\n        assembly { size := extcodesize(account) }\\n        return size > 0;\\n    }\\n\\n    /**\\n     * @dev Replacement for Solidity's `transfer`: sends `amount` wei to\\n     * `recipient`, forwarding all available gas and reverting on errors.\\n     *\\n     * https://eips.ethereum.org/EIPS/eip-1884[EIP1884] increases the gas cost\\n     * of certain opcodes, possibly making contracts go over the 2300 gas limit\\n     * imposed by `transfer`, making them unable to receive funds via\\n     * `transfer`. {sendValue} removes this limitation.\\n     *\\n     * https://diligence.consensys.net/posts/2019/09/stop-using-soliditys-transfer-now/[Learn more].\\n     *\\n     * IMPORTANT: because control is transferred to `recipient`, care must be\\n     * taken to not create reentrancy vulnerabilities. Consider using\\n     * {ReentrancyGuard} or the\\n     * https://solidity.readthedocs.io/en/v0.5.11/security-considerations.html#use-the-checks-effects-interactions-pattern[checks-effects-interactions pattern].\\n     */\\n    function sendValue(address payable recipient, uint256 amount) internal {\\n        require(address(this).balance >= amount, \\\"Address: insufficient balance\\\");\\n\\n        // solhint-disable-next-line avoid-low-level-calls, avoid-call-value\\n        (bool success, ) = recipient.call{ value: amount }(\\\"\\\");\\n        require(success, \\\"Address: unable to send value, recipient may have reverted\\\");\\n    }\\n\\n    /**\\n     * @dev Performs a Solidity function call using a low level `call`. A\\n     * plain`call` is an unsafe replacement for a function call: use this\\n     * function instead.\\n     *\\n     * If `target` reverts with a revert reason, it is bubbled up by this\\n     * function (like regular Solidity function calls).\\n     *\\n     * Returns the raw returned data. To convert to the expected return value,\\n     * use https://solidity.readthedocs.io/en/latest/units-and-global-variables.html?highlight=abi.decode#abi-encoding-and-decoding-functions[`abi.decode`].\\n     *\\n     * Requirements:\\n     *\\n     * - `target` must be a contract.\\n     * - calling `target` with `data` must not revert.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCall(address target, bytes memory data) internal returns (bytes memory) {\\n      return functionCall(target, data, \\\"Address: low-level call failed\\\");\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`], but with\\n     * `errorMessage` as a fallback revert reason when `target` reverts.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCall(address target, bytes memory data, string memory errorMessage) internal returns (bytes memory) {\\n        return functionCallWithValue(target, data, 0, errorMessage);\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],\\n     * but also transferring `value` wei to `target`.\\n     *\\n     * Requirements:\\n     *\\n     * - the calling contract must have an ETH balance of at least `value`.\\n     * - the called Solidity function must be `payable`.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCallWithValue(address target, bytes memory data, uint256 value) internal returns (bytes memory) {\\n        return functionCallWithValue(target, data, value, \\\"Address: low-level call with value failed\\\");\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCallWithValue-address-bytes-uint256-}[`functionCallWithValue`], but\\n     * with `errorMessage` as a fallback revert reason when `target` reverts.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCallWithValue(address target, bytes memory data, uint256 value, string memory errorMessage) internal returns (bytes memory) {\\n        require(address(this).balance >= value, \\\"Address: insufficient balance for call\\\");\\n        require(isContract(target), \\\"Address: call to non-contract\\\");\\n\\n        // solhint-disable-next-line avoid-low-level-calls\\n        (bool success, bytes memory returndata) = target.call{ value: value }(data);\\n        return _verifyCallResult(success, returndata, errorMessage);\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],\\n     * but performing a static call.\\n     *\\n     * _Available since v3.3._\\n     */\\n    function functionStaticCall(address target, bytes memory data) internal view returns (bytes memory) {\\n        return functionStaticCall(target, data, \\\"Address: low-level static call failed\\\");\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-string-}[`functionCall`],\\n     * but performing a static call.\\n     *\\n     * _Available since v3.3._\\n     */\\n    function functionStaticCall(address target, bytes memory data, string memory errorMessage) internal view returns (bytes memory) {\\n        require(isContract(target), \\\"Address: static call to non-contract\\\");\\n\\n        // solhint-disable-next-line avoid-low-level-calls\\n        (bool success, bytes memory returndata) = target.staticcall(data);\\n        return _verifyCallResult(success, returndata, errorMessage);\\n    }\\n\\n    function _verifyCallResult(bool success, bytes memory returndata, string memory errorMessage) private pure returns(bytes memory) {\\n        if (success) {\\n            return returndata;\\n        } else {\\n            // Look for revert reason and bubble it up if present\\n            if (returndata.length > 0) {\\n                // The easiest way to bubble the revert reason is using memory via assembly\\n\\n                // solhint-disable-next-line no-inline-assembly\\n                assembly {\\n                    let returndata_size := mload(returndata)\\n                    revert(add(32, returndata), returndata_size)\\n                }\\n            } else {\\n                revert(errorMessage);\\n            }\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0xfc5ea91fa9ceb1961023b2a6c978b902888c52b90847ac7813fe3b79524165f6\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\nimport \\\"../proxy/Initializable.sol\\\";\\n\\n/*\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with GSN meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract ContextUpgradeable is Initializable {\\n    function __Context_init() internal initializer {\\n        __Context_init_unchained();\\n    }\\n\\n    function __Context_init_unchained() internal initializer {\\n    }\\n    function _msgSender() internal view virtual returns (address payable) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes memory) {\\n        this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691\\n        return msg.data;\\n    }\\n    uint256[50] private __gap;\\n}\\n\",\"keccak256\":\"0xbbf8a21b9a66c48d45ff771b8563c6df19ba451d63dfb8380a865c1e1f29d1a0\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\nimport \\\"../proxy/Initializable.sol\\\";\\n\\n/**\\n * @dev Contract module that helps prevent reentrant calls to a function.\\n *\\n * Inheriting from `ReentrancyGuard` will make the {nonReentrant} modifier\\n * available, which can be applied to functions to make sure there are no nested\\n * (reentrant) calls to them.\\n *\\n * Note that because there is a single `nonReentrant` guard, functions marked as\\n * `nonReentrant` may not call one another. This can be worked around by making\\n * those functions `private`, and then adding `external` `nonReentrant` entry\\n * points to them.\\n *\\n * TIP: If you would like to learn more about reentrancy and alternative ways\\n * to protect against it, check out our blog post\\n * https://blog.openzeppelin.com/reentrancy-after-istanbul/[Reentrancy After Istanbul].\\n */\\nabstract contract ReentrancyGuardUpgradeable is Initializable {\\n    // Booleans are more expensive than uint256 or any type that takes up a full\\n    // word because each write operation emits an extra SLOAD to first read the\\n    // slot's contents, replace the bits taken up by the boolean, and then write\\n    // back. This is the compiler's defense against contract upgrades and\\n    // pointer aliasing, and it cannot be disabled.\\n\\n    // The values being non-zero value makes deployment a bit more expensive,\\n    // but in exchange the refund on every call to nonReentrant will be lower in\\n    // amount. Since refunds are capped to a percentage of the total\\n    // transaction's gas, it is best to keep them low in cases like this one, to\\n    // increase the likelihood of the full refund coming into effect.\\n    uint256 private constant _NOT_ENTERED = 1;\\n    uint256 private constant _ENTERED = 2;\\n\\n    uint256 private _status;\\n\\n    function __ReentrancyGuard_init() internal initializer {\\n        __ReentrancyGuard_init_unchained();\\n    }\\n\\n    function __ReentrancyGuard_init_unchained() internal initializer {\\n        _status = _NOT_ENTERED;\\n    }\\n\\n    /**\\n     * @dev Prevents a contract from calling itself, directly or indirectly.\\n     * Calling a `nonReentrant` function from another `nonReentrant`\\n     * function is not supported. It is possible to prevent this from happening\\n     * by making the `nonReentrant` function external, and make it call a\\n     * `private` function that does the actual work.\\n     */\\n    modifier nonReentrant() {\\n        // On the first call to nonReentrant, _notEntered will be true\\n        require(_status != _ENTERED, \\\"ReentrancyGuard: reentrant call\\\");\\n\\n        // Any calls to nonReentrant after this point will fail\\n        _status = _ENTERED;\\n\\n        _;\\n\\n        // By storing the original value once again, a refund is triggered (see\\n        // https://eips.ethereum.org/EIPS/eip-2200)\\n        _status = _NOT_ENTERED;\\n    }\\n    uint256[49] private __gap;\\n}\\n\",\"keccak256\":\"0x46034cd5cca740f636345c8f7aebae0f78adfd4b70e31e6f888cccbe1086586e\",\"license\":\"MIT\"},\"@openzeppelin/contracts/math/SafeMath.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\n/**\\n * @dev Wrappers over Solidity's arithmetic operations with added overflow\\n * checks.\\n *\\n * Arithmetic operations in Solidity wrap on overflow. This can easily result\\n * in bugs, because programmers usually assume that an overflow raises an\\n * error, which is the standard behavior in high level programming languages.\\n * `SafeMath` restores this intuition by reverting the transaction when an\\n * operation overflows.\\n *\\n * Using this library instead of the unchecked operations eliminates an entire\\n * class of bugs, so it's recommended to use it always.\\n */\\nlibrary SafeMath {\\n    /**\\n     * @dev Returns the addition of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryAdd(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        uint256 c = a + b;\\n        if (c < a) return (false, 0);\\n        return (true, c);\\n    }\\n\\n    /**\\n     * @dev Returns the substraction of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function trySub(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b > a) return (false, 0);\\n        return (true, a - b);\\n    }\\n\\n    /**\\n     * @dev Returns the multiplication of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryMul(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the\\n        // benefit is lost if 'b' is also tested.\\n        // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522\\n        if (a == 0) return (true, 0);\\n        uint256 c = a * b;\\n        if (c / a != b) return (false, 0);\\n        return (true, c);\\n    }\\n\\n    /**\\n     * @dev Returns the division of two unsigned integers, with a division by zero flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryDiv(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b == 0) return (false, 0);\\n        return (true, a / b);\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers, with a division by zero flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryMod(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b == 0) return (false, 0);\\n        return (true, a % b);\\n    }\\n\\n    /**\\n     * @dev Returns the addition of two unsigned integers, reverting on\\n     * overflow.\\n     *\\n     * Counterpart to Solidity's `+` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Addition cannot overflow.\\n     */\\n    function add(uint256 a, uint256 b) internal pure returns (uint256) {\\n        uint256 c = a + b;\\n        require(c >= a, \\\"SafeMath: addition overflow\\\");\\n        return c;\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, reverting on\\n     * overflow (when the result is negative).\\n     *\\n     * Counterpart to Solidity's `-` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Subtraction cannot overflow.\\n     */\\n    function sub(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b <= a, \\\"SafeMath: subtraction overflow\\\");\\n        return a - b;\\n    }\\n\\n    /**\\n     * @dev Returns the multiplication of two unsigned integers, reverting on\\n     * overflow.\\n     *\\n     * Counterpart to Solidity's `*` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Multiplication cannot overflow.\\n     */\\n    function mul(uint256 a, uint256 b) internal pure returns (uint256) {\\n        if (a == 0) return 0;\\n        uint256 c = a * b;\\n        require(c / a == b, \\\"SafeMath: multiplication overflow\\\");\\n        return c;\\n    }\\n\\n    /**\\n     * @dev Returns the integer division of two unsigned integers, reverting on\\n     * division by zero. The result is rounded towards zero.\\n     *\\n     * Counterpart to Solidity's `/` operator. Note: this function uses a\\n     * `revert` opcode (which leaves remaining gas untouched) while Solidity\\n     * uses an invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function div(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b > 0, \\\"SafeMath: division by zero\\\");\\n        return a / b;\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\n     * reverting when dividing by zero.\\n     *\\n     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\n     * opcode (which leaves remaining gas untouched) while Solidity uses an\\n     * invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function mod(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b > 0, \\\"SafeMath: modulo by zero\\\");\\n        return a % b;\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, reverting with custom message on\\n     * overflow (when the result is negative).\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {trySub}.\\n     *\\n     * Counterpart to Solidity's `-` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Subtraction cannot overflow.\\n     */\\n    function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b <= a, errorMessage);\\n        return a - b;\\n    }\\n\\n    /**\\n     * @dev Returns the integer division of two unsigned integers, reverting with custom message on\\n     * division by zero. The result is rounded towards zero.\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {tryDiv}.\\n     *\\n     * Counterpart to Solidity's `/` operator. Note: this function uses a\\n     * `revert` opcode (which leaves remaining gas untouched) while Solidity\\n     * uses an invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b > 0, errorMessage);\\n        return a / b;\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\n     * reverting with custom message when dividing by zero.\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {tryMod}.\\n     *\\n     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\n     * opcode (which leaves remaining gas untouched) while Solidity uses an\\n     * invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b > 0, errorMessage);\\n        return a % b;\\n    }\\n}\\n\",\"keccak256\":\"0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52\",\"license\":\"MIT\"},\"contracts/ShyftStaking.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.7.6;\\n\\nimport \\\"@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol\\\";\\nimport \\\"@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol\\\";\\nimport \\\"@openzeppelin/contracts-upgradeable/proxy/Initializable.sol\\\";\\nimport \\\"@openzeppelin/contracts/math/SafeMath.sol\\\";\\nimport {IShyftDao} from './interfaces/IShyftDao.sol';\\nimport {IPriceFeeder} from './interfaces/IPriceFeeder.sol';\\n\\n/**\\n * @title ShyftStaking Contract\\n */\\ncontract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgradeable {\\n  using SafeMath for uint256;\\n\\n  // Timestamp when current staking period is finishing.\\n  uint256 public periodFinish;\\n  // The reward rate for current period.\\n  uint256 public rewardRate;\\n  // The normal amount of rewards to be provided every period.\\n  uint256 public rewardsAmount;\\n  // The duration of a period.\\n  uint256 public rewardsDuration;\\n  // The time needed to be able to unstake after calling unbond.\\n  uint256 public unbondingPeriod;\\n  // The timestamp that the rewards were updated.\\n  uint256 public lastUpdateTime;\\n  // The reward amount for every Shft that is staked.\\n  uint256 public rewardPerShftStored;\\n  // The timestamp at which the pre purchasers amounts are released.\\n  uint256 public prePurchasersReleaseTimestamp;\\n\\n  // The user reward per every shft staked already paid.\\n  mapping(address => uint256) public userRewardPerShftPaid;\\n  // The user rewards already added.\\n  mapping(address => uint256) public rewards;\\n\\n  // The total supply staked or added (prepurchasers) inside the contract.\\n  uint256 private _totalSupply;\\n  // The balance of an address (prepurchasers don't have any till they stake).\\n  mapping(address => uint256) private _balances;\\n\\n  // The address of the rewardsDistribution contract.\\n  address public rewardsDistribution;\\n  // The dao contract, that provides the rewards multiplier.\\n  IShyftDao public shyftDao;\\n  // The priceFeeder contract, that provides the marketAveragePrice and the currentPrice of SHFT.\\n  IPriceFeeder public priceFeeder;\\n\\n  // The lowest voting bound price for SHFT.\\n  uint256 public lowestVotingBoundPrice;\\n\\n  // A struct containing the unbonding details.\\n  struct UnbondingDetails {\\n    // The account requested the unbonding.\\n    address account;\\n    // The remaining amount to be unstaked.\\n    uint256 remainingAmount;\\n    // The timestamp when unstaking is enabled for this unbonding.\\n    uint256 unstakeEnabledTimestamp;\\n    // The index, in which the unbonding exists into the account's unbonding array.\\n    uint256 indexIntoUnbondingArray;\\n  }\\n\\n  // UnbondingId => UnbondingDetails.\\n  mapping(uint256 => UnbondingDetails) public unbondingDetailsForId;\\n  // Staker => Unbonding ids array.\\n  mapping(address => uint256[]) public unbondingIdsPerAddress;\\n  // The total amount of unbondings.\\n  uint256 public totalUnbondings;\\n\\n  // A struct containing the prepurchaser details.\\n  struct PrePurchaserDetails {\\n    // The amount added for the prepurchasers.\\n    uint256 amountAdded;\\n    // True if prepurchaser has staked, false otherwise (initilized with false).\\n    bool staked;\\n  }\\n\\n  // Prepurchaser's address => PrePurchaserDetails.\\n  mapping(address => PrePurchaserDetails) public prePurchasersDetails;\\n  // The amount remaining to be staked by all prepurchasers.\\n  uint256 public totalPrePurchasersAmountToBeStaked;\\n\\n  // True if prepurchasers mode is on, false otherwise.\\n  bool prePurchasersModeOn;\\n\\n  /**\\n   * @notice Initialize the contract.\\n   * @param rewardsDistribution_ The address of the rewardsDistribution contract.\\n   * @param shyftDao_ The address of the shyftDao contract.\\n   * @param priceFeeder_ The address of the priceFeeder contract.\\n   * @param prePurchasersReleaseTimestamp_ The timestamp at which the pre purchasers amounts are released\\n   * @param rewardsDuration_ The duration of a period.\\n   * @param rewardsAmount_ The normal amount provided as reward every period.\\n   * @param lowestVotingBoundPrice_ The lowest voting bound price for SHFT.\\n   */\\n  function initialize(\\n    address rewardsDistribution_,\\n    address shyftDao_,\\n    address priceFeeder_,\\n    uint256 prePurchasersReleaseTimestamp_,\\n    uint256 rewardsDuration_,\\n    uint256 rewardsAmount_,\\n    uint256 lowestVotingBoundPrice_\\n  ) external initializer {\\n    __Ownable_init();\\n    __ReentrancyGuard_init();\\n\\n    rewardsDistribution = rewardsDistribution_;\\n    shyftDao = IShyftDao(shyftDao_);\\n    priceFeeder = IPriceFeeder(priceFeeder_);\\n\\n    prePurchasersReleaseTimestamp = prePurchasersReleaseTimestamp_;\\n    rewardsDuration = rewardsDuration_;\\n    rewardsAmount = rewardsAmount_;\\n    lowestVotingBoundPrice = lowestVotingBoundPrice_;\\n\\n    prePurchasersModeOn = true;\\n    unbondingPeriod = 28 days;\\n  }\\n\\n  /* ======================================================= MODIFIERS ====================================================== */\\n\\n  modifier updateReward(address account) {\\n    rewardPerShftStored = rewardPerShft();\\n    lastUpdateTime = lastTimeRewardApplicable();\\n    if (account != address(0)) {\\n      rewards[account] = earned(account);\\n      userRewardPerShftPaid[account] = rewardPerShftStored;\\n    }\\n    _;\\n  }\\n\\n  modifier onlyRewardsDistribution() {\\n    require(msg.sender == rewardsDistribution,\\n      \\\"Only rewardsDistribution contract\\\");\\n    _;\\n  }\\n\\n  modifier onlyAfterRelease() {\\n    require(block.timestamp >= prePurchasersReleaseTimestamp,\\n      \\\"Cannot do this action yet\\\");\\n    _;\\n  }\\n\\n  modifier onlyPrePurchaserModeOn() {\\n    require(prePurchasersModeOn, \\\"Only if prepurchasers mode is ON\\\");\\n    _;\\n  }\\n\\n  /* ======================================================== EVENTS ======================================================== */\\n\\n  event RewardAdded(uint256 reward);\\n  event Staked(address indexed user, uint256 amount);\\n  event Unbonded(address indexed user, uint256 amount, uint256 timestamp, uint256 id);\\n  event RewardPaid(address indexed user, uint256 reward);\\n  event RewardsDurationUpdated(uint256 newDuration);\\n  event RewardAmountUpdated(uint256 newRewardAmount);\\n  event LowestVotingBoundPriceUpdated(uint256 newLowestVotingBoundPrice);\\n  event Unstaked(uint256 indexed unbondingId, uint256 amount);\\n  event PrePurchaserAdded(address indexed prePurchaser, uint256 amount);\\n  event PrePurchaserStaked(address indexed prePurchaser, uint256 amount);\\n  event PrepurchasersModeFinished(uint256 amountOfRewardsReturned);\\n\\n  /* ================================================== MUTATIVE FUNCTIONS ================================================== */\\n\\n  /**\\n   * @notice Stake\\n   * @dev This function is used by users to stake.\\n   * @notice Prepurchasers cannot stake till the prepurchasers mode goes off.\\n   */\\n  function stake() external payable nonReentrant updateReward(msg.sender) {\\n    if (prePurchasersDetails[msg.sender].amountAdded > 0) {\\n      require(!prePurchasersModeOn,\\n        \\\"Prepurchasers can normally stake only if prepurchasers mode is not ON\\\"\\n      );\\n    }\\n\\n    uint256 amount = msg.value;\\n    require(amount > 0, \\\"Cannot stake 0\\\");\\n\\n    _totalSupply = _totalSupply.add(amount);\\n    _balances[msg.sender] = _balances[msg.sender].add(amount);\\n\\n    emit Staked(msg.sender, amount);\\n  }\\n\\n  /**\\n   * @notice Stake for prepurchasers\\n   * @dev This function is used by prepurchasers so that they can add the amount needed to be eligible\\n   * @dev for already farmed rewards.\\n   * @notice Prepurchasers can only use this function after their release and only if prepurchasers mode is on.\\n   */\\n  function stakePrePurchaser() external payable nonReentrant onlyAfterRelease onlyPrePurchaserModeOn {\\n    require(!prePurchasersDetails[msg.sender].staked, \\\"Cannot stake again\\\");\\n    require(prePurchasersDetails[msg.sender].amountAdded > 0,\\n      \\\"Only Prepurchasers can call this function\\\");\\n    require(msg.value == prePurchasersDetails[msg.sender].amountAdded,\\n      \\\"Prepurchasers should stake the whole exact amount\\\");\\n\\n    uint256 amount = msg.value;\\n\\n    prePurchasersDetails[msg.sender].staked = true;\\n    _balances[msg.sender] = _balances[msg.sender].add(amount);\\n\\n    totalPrePurchasersAmountToBeStaked = totalPrePurchasersAmountToBeStaked.sub(amount);\\n\\n    emit PrePurchaserStaked(msg.sender, amount);\\n  }\\n\\n  /**\\n   * @notice Unbond\\n   * @dev This function is used by users to unbond part of their stake.\\n   * @notice This function can only be called after prepurchasers' release happens.\\n   * @param amount The amount to be unbonded.\\n   */\\n  function unbond(uint256 amount) external nonReentrant onlyAfterRelease updateReward(msg.sender) {\\n    _unbond(amount);\\n  }\\n\\n  /**\\n   * @notice UnbondAll\\n   * @dev This function is used by users to unbond their whole stake.\\n   * @notice This function can only be called after prepurchasers' release happens.\\n   */\\n  function unbondAll() external nonReentrant onlyAfterRelease updateReward(msg.sender) {\\n    _unbond(_balances[msg.sender]);\\n    _getReward();\\n  }\\n\\n  /**\\n   * @notice Unstake\\n   * @dev This function is used by users to unstake their unbonded stakes.\\n   * @notice This function is associated with an unbonding id generated from the unbond function.\\n   * @notice Must have passed at least time equal to unbondingPeriod between unbond and unstake\\n   * @notice for users to be able to unstake.\\n   * @param unbondingId The unbondingId from which user would like to unstake.\\n   * @param amount The amount from the unbonding id, which user would like to unstake.\\n   */\\n  function unstake(uint256 unbondingId, uint256 amount) external nonReentrant {\\n    require(block.timestamp >= unbondingDetailsForId[unbondingId].unstakeEnabledTimestamp,\\n      \\\"Cannot unstake before unbonding period ends\\\");\\n    require(msg.sender == unbondingDetailsForId[unbondingId].account,\\n      \\\"Only owner of unbonding id can unstake\\\");\\n    require(unbondingDetailsForId[unbondingId].remainingAmount >= amount,\\n      \\\"Cannot unstake more than remaining amount in unbonding id\\\");\\n\\n    unbondingDetailsForId[unbondingId].remainingAmount =\\n      unbondingDetailsForId[unbondingId].remainingAmount.sub(amount);\\n\\n    if (unbondingDetailsForId[unbondingId].remainingAmount == 0) {\\n      uint256 index = unbondingDetailsForId[unbondingId].indexIntoUnbondingArray;\\n      uint256 length = unbondingIdsPerAddress[msg.sender].length;\\n\\n      uint256 unbondingIdToMove = unbondingIdsPerAddress[msg.sender][length.sub(1)];\\n      unbondingIdsPerAddress[msg.sender][index] = unbondingIdToMove;\\n      unbondingIdsPerAddress[msg.sender].pop();\\n\\n      // Case that rubbish remains in here, that does not play any role though.\\n      unbondingDetailsForId[unbondingIdToMove].indexIntoUnbondingArray = index;\\n    }\\n\\n    emit Unstaked(unbondingId, amount);\\n\\n    msg.sender.transfer(amount);\\n  }\\n\\n  /**\\n   * @notice GetReward\\n   * @dev This function is used by users to get their rewards.\\n   * @notice This function can only be called after prepurchasers' release happens.\\n   */\\n  function getReward() external nonReentrant onlyAfterRelease updateReward(msg.sender) {\\n    _getReward();\\n  }\\n\\n  /* ================================================= RESTRICTED FUNCTIONS ================================================= */\\n\\n  /**\\n   * @notice NotifyRewardAmount\\n   * @dev This function can only be called by rewardsDistribution contract to provide rewards.\\n   */\\n  function notifyRewardAmount() external payable onlyRewardsDistribution updateReward(address(0)) {\\n    require(msg.value == rewardsAmount, \\\"Whole rewardsAmount should be sent\\\");\\n\\n    uint256 marketAveragePrice = priceFeeder.getMarketAveragePrice();\\n    uint256 currentPrice = priceFeeder.getCurrentPrice();\\n\\n    uint256 reward;\\n\\n    if (marketAveragePrice <= lowestVotingBoundPrice) { // normal rewards\\n      reward = rewardsAmount;\\n    } else if (marketAveragePrice <= currentPrice) { // reward based on dao multiplie\\n      uint256 daoMultiplier = shyftDao.getDaoMultiplier();\\n      require(daoMultiplier > 0 && daoMultiplier <= 1 ether, \\\"Wrong dao multiplier limits\\\");\\n      reward = rewardsAmount.mul(daoMultiplier).div(1 ether);\\n    } else { // no rewards\\n      reward = 0;\\n    }\\n\\n    if (block.timestamp >= periodFinish) {\\n      rewardRate = reward.div(rewardsDuration);\\n    } else {\\n      uint256 remaining = periodFinish.sub(block.timestamp);\\n      uint256 leftover = remaining.mul(rewardRate);\\n      rewardRate = reward.add(leftover).div(rewardsDuration);\\n    }\\n\\n    lastUpdateTime = block.timestamp;\\n    periodFinish = block.timestamp.add(rewardsDuration);\\n\\n    emit RewardAdded(reward);\\n\\n    msg.sender.transfer(msg.value.sub(reward));\\n  }\\n\\n  /**\\n   * @notice SetRewardsDuration\\n   * @dev This function can be called by the owner to change the rewards period.\\n   * @notice Can only be called after previous rewards period has finished.\\n   * @param rewardsDuration_ The new rewards duration.\\n   */\\n  function setRewardsDuration(uint256 rewardsDuration_) external onlyOwner {\\n    require(\\n      block.timestamp > periodFinish,\\n      \\\"Previous rewards period must be complete before changing the duration for the new period\\\"\\n    );\\n    rewardsDuration = rewardsDuration_;\\n    emit RewardsDurationUpdated(rewardsDuration);\\n  }\\n\\n  /**\\n   * @notice SetRewardsAmount\\n   * @dev This function can be called by the owner to change the normal rewards amount.\\n   * @param rewardsAmount_ The new rewards amount.\\n   */\\n  function setRewardsAmount(uint256 rewardsAmount_) external onlyOwner {\\n    rewardsAmount = rewardsAmount_;\\n    emit RewardAmountUpdated(rewardsAmount);\\n  }\\n\\n  /**\\n   * @notice SetLowestVotingBoundPrice\\n   * @dev This function can be called by the owner to change the lowest voting bound price.\\n   * @param lowestVotingBoundPrice_ The new lowest voting bound price.\\n   */\\n  function setLowestVotingBoundPrice(uint256 lowestVotingBoundPrice_) external onlyOwner {\\n    lowestVotingBoundPrice = lowestVotingBoundPrice_;\\n    emit LowestVotingBoundPriceUpdated(lowestVotingBoundPrice);\\n  }\\n\\n  /**\\n   * @notice setPriceFeeder\\n   * @dev This function can be called by the owner to change the priceFeeder contract.\\n   * @param priceFeeder_ The new priceFeeder address.\\n   */\\n  function setPriceFeeder(address priceFeeder_) external onlyOwner {\\n    priceFeeder = IPriceFeeder(priceFeeder_);\\n  }\\n\\n  /**\\n   * @notice setShyftDao\\n   * @dev This function can be called by the owner to change the shyftDao contract.\\n   * @param shyftDao_ The new shyftDao address.\\n   */\\n  function setShyftDao(address shyftDao_) external onlyOwner {\\n    shyftDao = IShyftDao(shyftDao_);\\n  }\\n\\n  /**\\n   * @notice setRewardsDistribution\\n   * @dev This function can be called by the owner to change the rewardsDistribution address.\\n   * @param rewardsDistribution_ The new rewardsDistribution address.\\n   */\\n  function setRewardsDistribution(address rewardsDistribution_) external onlyOwner {\\n    rewardsDistribution = rewardsDistribution_;\\n  }\\n\\n  /**\\n   * @notice AddPrePurchasers\\n   * @dev This function can be called by the owner to add prepurchasers.\\n   * @notice Can only be called before any rewards have been provided.\\n   * @notice Careful on inputs creation, prepurchasers already added cannot be added again.\\n   * @param prePurchasers The array of the prepurchasers' addresses to be added.\\n   * @param amounts The array of the amounts to be added for each prepurchaser.\\n   */\\n  function addPrePurchasers(\\n    address[] calldata prePurchasers,\\n    uint256[] calldata amounts\\n  ) external onlyOwner {\\n    require(rewardRate == 0, \\\"Cannot add prepurchasers after rewards are provided\\\");\\n    require(prePurchasers.length == amounts.length &&\\n      prePurchasers.length > 0, \\\"Wrong input\\\");\\n\\n    for (uint256 i = 0; i < prePurchasers.length; i++) {\\n      require(amounts[i] > 0, \\\"Amount to be added must be greater than 0\\\");\\n      require(prePurchasersDetails[prePurchasers[i]].amountAdded == 0,\\n        \\\"Cannot add prepurchaser again\\\");\\n      prePurchasersDetails[prePurchasers[i]].amountAdded = amounts[i];\\n\\n      _totalSupply = _totalSupply.add(amounts[i]);\\n      totalPrePurchasersAmountToBeStaked = totalPrePurchasersAmountToBeStaked.add(amounts[i]);\\n\\n      emit PrePurchaserAdded(prePurchasers[i], amounts[i]);\\n    }\\n  }\\n\\n  /**\\n   * @notice FinishPrePurchasersMode\\n   * @dev This function can be called by the owner to finish the prepurchasers mode.\\n   * @notice After that function is called prepurchasers that have not yet staked are losing\\n   * @notice already farmed rewards, which are returned back to the rewardsDistribution contract.\\n   */\\n  function finishPrePurchasersMode() external onlyOwner onlyAfterRelease onlyPrePurchaserModeOn {\\n    prePurchasersModeOn = false;\\n\\n    uint256 rewardsToBeReturned = totalPrePurchasersAmountToBeStaked.mul(rewardPerShft()).div(1e18);\\n    uint256 newTotalSupply = _totalSupply.sub(totalPrePurchasersAmountToBeStaked);\\n    rewardRate = rewardRate.mul(newTotalSupply).div(_totalSupply);\\n    _totalSupply = newTotalSupply;\\n\\n    address(uint160(rewardsDistribution)).transfer(rewardsToBeReturned);\\n\\n    emit PrepurchasersModeFinished(rewardsToBeReturned);\\n  }\\n\\n  /* ======================================================= INTERNALS ====================================================== */\\n\\n  function _unbond(uint256 amount_) internal {\\n    require(amount_ > 0, \\\"Cannot unbond 0\\\");\\n    require(_balances[msg.sender] >= amount_, \\\"Cannot unbond more than staked\\\");\\n\\n    _totalSupply = _totalSupply.sub(amount_);\\n    _balances[msg.sender] = _balances[msg.sender].sub(amount_);\\n\\n    totalUnbondings = totalUnbondings.add(1);\\n\\n    unbondingIdsPerAddress[msg.sender].push(totalUnbondings);\\n\\n    UnbondingDetails memory currentUnbondingDetails;\\n    currentUnbondingDetails.account = msg.sender;\\n    currentUnbondingDetails.remainingAmount = amount_;\\n    currentUnbondingDetails.unstakeEnabledTimestamp = block.timestamp.add(unbondingPeriod);\\n    currentUnbondingDetails.indexIntoUnbondingArray = unbondingIdsPerAddress[msg.sender].length.sub(1);\\n\\n    unbondingDetailsForId[totalUnbondings] = currentUnbondingDetails;\\n\\n    emit Unbonded(msg.sender, amount_, block.timestamp, totalUnbondings);\\n  }\\n\\n  function _getReward() internal {    \\n    uint256 reward = rewards[msg.sender];\\n    if (reward > 0) {\\n      rewards[msg.sender] = 0;\\n      msg.sender.transfer(reward);\\n\\n      emit RewardPaid(msg.sender, reward);\\n    }\\n  }\\n\\n  /* ========================================================= VIEWS ======================================================== */\\n\\n  function totalSupply() external view returns (uint256) {\\n    return _totalSupply;\\n  }\\n\\n  function balanceOf(address account) external view returns (uint256) {\\n    return _balances[account];\\n  }\\n\\n  function lastTimeRewardApplicable() public view returns (uint256) {\\n    return block.timestamp < periodFinish ? block.timestamp : periodFinish;\\n  }\\n\\n  function rewardPerShft() public view returns (uint256) {\\n    if (_totalSupply == 0) {\\n      return rewardPerShftStored;\\n    }\\n    return \\n      rewardPerShftStored.add(\\n        lastTimeRewardApplicable().sub(lastUpdateTime).mul(rewardRate).mul(1e18).div(_totalSupply)\\n      );\\n  }\\n\\n  function earned(address account) public view returns (uint256) {\\n    return _balances[account].mul(rewardPerShft().sub(userRewardPerShftPaid[account])).div(1e18).add(rewards[account]);\\n  }\\n\\n  function getRewardForDuration() external view returns (uint256) {\\n    return rewardRate.mul(rewardsDuration);\\n  }\\n\\n  function getUnbondingIdsLength(address account) external view returns (uint256) {\\n    return unbondingIdsPerAddress[account].length;\\n  }\\n\\n  function getUnbondingIds(address account, uint256 offset, uint256 size) external view returns (uint256[] memory, uint256) {\\n    uint256 length = size;\\n    uint256 unbondingIdsLength = unbondingIdsPerAddress[account].length;\\n\\n    if (length > unbondingIdsLength - offset) {\\n      length = unbondingIdsLength - offset;\\n    }\\n\\n    uint256[] memory unbondingIds = new uint256[](length);\\n    for (uint256 i = 0; i < length; i++) {\\n      unbondingIds[i] = unbondingIdsPerAddress[account][i + offset];\\n    }\\n\\n    return (unbondingIds, offset + length);\\n  }\\n}\\n\",\"keccak256\":\"0xc50c14e12d14425e8e69627d805614bf09df574825a0b11895d21afa00d1e741\",\"license\":\"MIT\"},\"contracts/interfaces/IPriceFeeder.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.7.6;\\n\\n/**\\n * @title PriceFeeder test interface\\n * @dev WARNING Only for testing purposes.\\n */\\ninterface IPriceFeeder {\\n    function getCurrentPrice() external view returns (uint256);\\n    function getMarketAveragePrice() external view returns (uint256);\\n}\\n\",\"keccak256\":\"0x3f0041299c0a846eaa54ae73ab53596d4f0fa14948d6e80bf6370b300b9b1472\",\"license\":\"MIT\"},\"contracts/interfaces/IShyftDao.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.7.6;\\n\\n/**\\n * @title ShyftDao test interface\\n * @dev WARNING Only for testing purposes.\\n */\\ninterface IShyftDao {\\n    function getDaoMultiplier() external view returns (uint256);\\n}\\n\",\"keccak256\":\"0x0364d72511895efb751d4ff6715dc1f55f0bf8af0190501153f986d0a79f937f\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50613120806100206000396000f3fe60806040526004361061027c5760003560e01c806371b77d0a1161014f578063a75da1e6116100c1578063c13d995c1161007a578063c13d995c14610941578063c8f33c9114610956578063cc1a378f1461096b578063de771e3514610995578063ebe2b12b146109aa578063f2fde38b146109bf5761027c565b8063a75da1e61461080b578063ae707184146108a5578063b012e2cc146108ba578063bd43c107146108cf578063be0143c9146108e4578063c09b4ed91461090e5761027c565b806389794b281161011357806389794b28146107265780638da5cb5b1461073b578063980b691f14610750578063998ed311146107655780639e2c8a5b1461078f578063a4b65397146107bf5761027c565b806371b77d0a146106785780637963bbfd1461068d5780637b0a47ee146106e75780637bdec1b6146106fc57806380faa57d146107115761027c565b80632838edc6116101f35780635e7654f8116101ac5780635e7654f8146105ad57806360f77190146105e05780636cf6d675146105e85780636e6f5bc4146105fd57806370a0823114610630578063715018a6146106635761027c565b80632838edc6146104d25780632b4656c81461050b578063386a9525146105665780633a4b66f11461057b5780633d18b912146105835780633fc6df6e146105985761027c565b806318160ddd1161024557806318160ddd146103e757806319762143146103fc5780631c1f78eb1461042f5780631d844c2d146104445780631fada4851461047757806327de9e32146104a85761027c565b80628cc262146102815780630700037d146102c65780630c51dde4146102f957806311adbf3c1461030357806315f7b402146103d2575b600080fd5b34801561028d57600080fd5b506102b4600480360360208110156102a457600080fd5b50356001600160a01b03166109f2565b60408051918252519081900360200190f35b3480156102d257600080fd5b506102b4600480360360208110156102e957600080fd5b50356001600160a01b0316610a70565b610301610a82565b005b34801561030f57600080fd5b506103016004803603604081101561032657600080fd5b81019060208101813564010000000081111561034157600080fd5b82018360208201111561035357600080fd5b8035906020019184602083028401116401000000008311171561037557600080fd5b91939092909160208101903564010000000081111561039357600080fd5b8201836020820111156103a557600080fd5b803590602001918460208302840111640100000000831117156103c757600080fd5b509092509050610e5e565b3480156103de57600080fd5b50610301611150565b3480156103f357600080fd5b506102b4611264565b34801561040857600080fd5b506103016004803603602081101561041f57600080fd5b50356001600160a01b031661126b565b34801561043b57600080fd5b506102b46112ef565b34801561045057600080fd5b506103016004803603602081101561046757600080fd5b50356001600160a01b031661130d565b34801561048357600080fd5b5061048c611391565b604080516001600160a01b039092168252519081900360200190f35b3480156104b457600080fd5b50610301600480360360208110156104cb57600080fd5b50356113a0565b3480156104de57600080fd5b506102b4600480360360408110156104f557600080fd5b506001600160a01b03813516906020013561149d565b34801561051757600080fd5b50610301600480360360e081101561052e57600080fd5b506001600160a01b03813581169160208101358216916040820135169060608101359060808101359060a08101359060c001356114ce565b34801561057257600080fd5b506102b46115ec565b6103016115f2565b34801561058f57600080fd5b506103016117af565b3480156105a457600080fd5b5061048c6118a1565b3480156105b957600080fd5b50610301600480360360208110156105d057600080fd5b50356001600160a01b03166118b0565b610301611934565b3480156105f457600080fd5b506102b4611ba4565b34801561060957600080fd5b506102b46004803603602081101561062057600080fd5b50356001600160a01b0316611baa565b34801561063c57600080fd5b506102b46004803603602081101561065357600080fd5b50356001600160a01b0316611bc5565b34801561066f57600080fd5b50610301611be0565b34801561068457600080fd5b5061048c611c8c565b34801561069957600080fd5b506106b7600480360360208110156106b057600080fd5b5035611c9b565b604080516001600160a01b0390951685526020850193909352838301919091526060830152519081900360800190f35b3480156106f357600080fd5b506102b4611ccc565b34801561070857600080fd5b506102b4611cd2565b34801561071d57600080fd5b506102b4611cd8565b34801561073257600080fd5b506102b4611cf0565b34801561074757600080fd5b5061048c611cf6565b34801561075c57600080fd5b50610301611d05565b34801561077157600080fd5b506103016004803603602081101561078857600080fd5b5035611ee1565b34801561079b57600080fd5b50610301600480360360408110156107b257600080fd5b5080359060200135611f7e565b3480156107cb57600080fd5b506107f2600480360360208110156107e257600080fd5b50356001600160a01b031661222c565b6040805192835290151560208301528051918290030190f35b34801561081757600080fd5b5061084a6004803603606081101561082e57600080fd5b506001600160a01b038135169060208101359060400135612248565b6040518080602001838152602001828103825284818151815260200191508051906020019060200280838360005b83811015610890578181015183820152602001610878565b50505050905001935050505060405180910390f35b3480156108b157600080fd5b506102b4612326565b3480156108c657600080fd5b506102b461232c565b3480156108db57600080fd5b506102b461237a565b3480156108f057600080fd5b506103016004803603602081101561090757600080fd5b5035612380565b34801561091a57600080fd5b506102b46004803603602081101561093157600080fd5b50356001600160a01b031661241d565b34801561094d57600080fd5b506102b461242f565b34801561096257600080fd5b506102b4612435565b34801561097757600080fd5b506103016004803603602081101561098e57600080fd5b503561243b565b3480156109a157600080fd5b506102b4612518565b3480156109b657600080fd5b506102b461251e565b3480156109cb57600080fd5b50610301600480360360208110156109e257600080fd5b50356001600160a01b0316612524565b6001600160a01b038116600090815260a06020908152604080832054609f909252822054610a6a9190610a6490670de0b6b3a764000090610a5e90610a3f90610a3961232c565b90612627565b6001600160a01b038816600090815260a2602052604090205490612684565b906126e4565b9061274b565b92915050565b60a06020526000908152604090205481565b60a3546001600160a01b03163314610acb5760405162461bcd60e51b8152600401808060200182810382526021815260200180612e946021913960400191505060405180910390fd5b6000610ad561232c565b609d55610ae0611cd8565b609c556001600160a01b03811615610b2757610afb816109f2565b6001600160a01b038216600090815260a06020908152604080832093909355609d54609f909152919020555b6099543414610b675760405162461bcd60e51b81526004018080602001828103825260228152602001806130106022913960400191505060405180910390fd5b60a5546040805163f784a7b760e01b815290516000926001600160a01b03169163f784a7b7916004808301926020929190829003018186803b158015610bac57600080fd5b505afa158015610bc0573d6000803e3d6000fd5b505050506040513d6020811015610bd657600080fd5b505160a554604080516375c8e9bf60e11b815290519293506000926001600160a01b039092169163eb91d37e91600480820192602092909190829003018186803b158015610c2357600080fd5b505afa158015610c37573d6000803e3d6000fd5b505050506040513d6020811015610c4d57600080fd5b505160a6549091506000908311610c675750609954610d76565b818311610d725760a45460408051631a46d32f60e01b815290516000926001600160a01b031691631a46d32f916004808301926020929190829003018186803b158015610cb357600080fd5b505afa158015610cc7573d6000803e3d6000fd5b505050506040513d6020811015610cdd57600080fd5b505190508015801590610cf85750670de0b6b3a76400008111155b610d49576040805162461bcd60e51b815260206004820152601b60248201527f57726f6e672064616f206d756c7469706c696572206c696d6974730000000000604482015290519081900360640190fd5b610d6a670de0b6b3a7640000610a5e8360995461268490919063ffffffff16565b915050610d76565b5060005b6097544210610d9557609a54610d8d9082906126e4565b609855610dd8565b609754600090610da59042612627565b90506000610dbe6098548361268490919063ffffffff16565b609a54909150610dd290610a5e858461274b565b60985550505b42609c819055609a54610deb919061274b565b6097556040805182815290517fde88a922e0d3b88b24e9623efeb464919c6bf9f66857a65e2bfcf2ce87a9433d9181900360200190a1336108fc610e2f3484612627565b6040518115909202916000818181858888f19350505050158015610e57573d6000803e3d6000fd5b5050505050565b610e666127a5565b6001600160a01b0316610e77611cf6565b6001600160a01b031614610ec0576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b60985415610eff5760405162461bcd60e51b81526004018080602001828103825260338152602001806130b86033913960400191505060405180910390fd5b8281148015610f0d57508215155b610f4c576040805162461bcd60e51b815260206004820152600b60248201526a15dc9bdb99c81a5b9c1d5d60aa1b604482015290519081900360640190fd5b60005b83811015610e57576000838383818110610f6557fe5b9050602002013511610fa85760405162461bcd60e51b8152600401808060200182810382526029815260200180612ed56029913960400191505060405180910390fd5b60aa6000868684818110610fb857fe5b905060200201356001600160a01b03166001600160a01b03166001600160a01b0316815260200190815260200160002060000154600014611040576040805162461bcd60e51b815260206004820152601d60248201527f43616e6e6f74206164642070726570757263686173657220616761696e000000604482015290519081900360640190fd5b82828281811061104c57fe5b9050602002013560aa600087878581811061106357fe5b602090810292909201356001600160a01b0316835250810191909152604001600020556110ad83838381811061109557fe5b9050602002013560a15461274b90919063ffffffff16565b60a1556110d78383838181106110bf57fe5b9050602002013560ab5461274b90919063ffffffff16565b60ab558484828181106110e657fe5b905060200201356001600160a01b03166001600160a01b03167f13293501fbf987deb63d1dceffaa787e720de4c85e6a2a5afdf86d16979d2dac84848481811061112c57fe5b905060200201356040518082815260200191505060405180910390a2600101610f4f565b60026065541415611196576040805162461bcd60e51b815260206004820152601f6024820152600080516020612e4e833981519152604482015290519081900360640190fd5b6002606555609e544210156111e0576040805162461bcd60e51b81526020600482015260196024820152600080516020612eb5833981519152604482015290519081900360640190fd5b336111e961232c565b609d556111f4611cd8565b609c556001600160a01b0381161561123b5761120f816109f2565b6001600160a01b038216600090815260a06020908152604080832093909355609d54609f909152919020555b33600090815260a26020526040902054611254906127a9565b61125c61299c565b506001606555565b60a1545b90565b6112736127a5565b6001600160a01b0316611284611cf6565b6001600160a01b0316146112cd576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b60a380546001600160a01b0319166001600160a01b0392909216919091179055565b6000611308609a5460985461268490919063ffffffff16565b905090565b6113156127a5565b6001600160a01b0316611326611cf6565b6001600160a01b03161461136f576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b60a580546001600160a01b0319166001600160a01b0392909216919091179055565b60a5546001600160a01b031681565b600260655414156113e6576040805162461bcd60e51b815260206004820152601f6024820152600080516020612e4e833981519152604482015290519081900360640190fd5b6002606555609e54421015611430576040805162461bcd60e51b81526020600482015260196024820152600080516020612eb5833981519152604482015290519081900360640190fd5b3361143961232c565b609d55611444611cd8565b609c556001600160a01b0381161561148b5761145f816109f2565b6001600160a01b038216600090815260a06020908152604080832093909355609d54609f909152919020555b611494826127a9565b50506001606555565b60a860205281600052604060002081815481106114b957600080fd5b90600052602060002001600091509150505481565b600054610100900460ff16806114e757506114e7612a28565b806114f5575060005460ff16155b6115305760405162461bcd60e51b815260040180806020018281038252602e815260200180612f55602e913960400191505060405180910390fd5b600054610100900460ff1615801561155b576000805460ff1961ff0019909116610100171660011790555b611563612a39565b61156b612aea565b60a380546001600160a01b03808b166001600160a01b03199283161790925560a480548a841690831617905560a5805492891692909116919091179055609e859055609a849055609983905560a682905560ac805460ff191660011790556224ea00609b5580156115e2576000805461ff00191690555b5050505050505050565b609a5481565b60026065541415611638576040805162461bcd60e51b815260206004820152601f6024820152600080516020612e4e833981519152604482015290519081900360640190fd5b60026065553361164661232c565b609d55611651611cd8565b609c556001600160a01b038116156116985761166c816109f2565b6001600160a01b038216600090815260a06020908152604080832093909355609d54609f909152919020555b33600090815260aa6020526040902054156116ef5760ac5460ff16156116ef5760405162461bcd60e51b81526004018080602001828103825260458152602001806130736045913960600191505060405180910390fd5b3480611733576040805162461bcd60e51b815260206004820152600e60248201526d043616e6e6f74207374616b6520360941b604482015290519081900360640190fd5b60a154611740908261274b565b60a15533600090815260a2602052604090205461175d908261274b565b33600081815260a26020908152604091829020939093558051848152905191927f9e71bc8eea02a63969f509818f2dafb9254532904319f9dbda79b67bd34a5f3d92918290030190a250506001606555565b600260655414156117f5576040805162461bcd60e51b815260206004820152601f6024820152600080516020612e4e833981519152604482015290519081900360640190fd5b6002606555609e5442101561183f576040805162461bcd60e51b81526020600482015260196024820152600080516020612eb5833981519152604482015290519081900360640190fd5b3361184861232c565b609d55611853611cd8565b609c556001600160a01b038116156112545761186e816109f2565b6001600160a01b038216600090815260a06020908152604080832093909355609d54609f9091529190205561125c61299c565b60a3546001600160a01b031681565b6118b86127a5565b6001600160a01b03166118c9611cf6565b6001600160a01b031614611912576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b60a480546001600160a01b0319166001600160a01b0392909216919091179055565b6002606554141561197a576040805162461bcd60e51b815260206004820152601f6024820152600080516020612e4e833981519152604482015290519081900360640190fd5b6002606555609e544210156119c4576040805162461bcd60e51b81526020600482015260196024820152600080516020612eb5833981519152604482015290519081900360640190fd5b60ac5460ff16611a1b576040805162461bcd60e51b815260206004820181905260248201527f4f6e6c792069662070726570757263686173657273206d6f6465206973204f4e604482015290519081900360640190fd5b33600090815260aa602052604090206001015460ff1615611a78576040805162461bcd60e51b815260206004820152601260248201527121b0b73737ba1039ba30b5b29030b3b0b4b760711b604482015290519081900360640190fd5b33600090815260aa6020526040902054611ac35760405162461bcd60e51b8152600401808060200182810382526029815260200180612fbc6029913960400191505060405180910390fd5b33600090815260aa60205260409020543414611b105760405162461bcd60e51b8152600401808060200182810382526031815260200180612efe6031913960400191505060405180910390fd5b33600090815260aa602090815260408083206001908101805460ff1916909117905560a29091529020543490611b46908261274b565b33600090815260a2602052604090205560ab54611b639082612627565b60ab5560408051828152905133917ff4650017e68313b5cc887c6c31bf2fccb37d17c7ad3805c78f6f22c9e3849163919081900360200190a2506001606555565b609b5481565b6001600160a01b0316600090815260a8602052604090205490565b6001600160a01b0316600090815260a2602052604090205490565b611be86127a5565b6001600160a01b0316611bf9611cf6565b6001600160a01b031614611c42576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b6033546040516000916001600160a01b0316907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a3603380546001600160a01b0319169055565b60a4546001600160a01b031681565b60a76020526000908152604090208054600182015460028301546003909301546001600160a01b0390921692909184565b60985481565b60ab5481565b60006097544210611ceb57609754611308565b504290565b609d5481565b6033546001600160a01b031690565b611d0d6127a5565b6001600160a01b0316611d1e611cf6565b6001600160a01b031614611d67576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b609e54421015611dac576040805162461bcd60e51b81526020600482015260196024820152600080516020612eb5833981519152604482015290519081900360640190fd5b60ac5460ff16611e03576040805162461bcd60e51b815260206004820181905260248201527f4f6e6c792069662070726570757263686173657273206d6f6465206973204f4e604482015290519081900360640190fd5b60ac805460ff191690556000611e2f670de0b6b3a7640000610a5e611e2661232c565b60ab5490612684565b90506000611e4a60ab5460a15461262790919063ffffffff16565b9050611e6760a154610a5e8360985461268490919063ffffffff16565b60985560a181905560a3546040516001600160a01b039091169083156108fc029084906000818181858888f19350505050158015611ea9573d6000803e3d6000fd5b506040805183815290517f633f23524f0640305e167d2acdd34280fda7e4d099f74f6f40016c1b6e6629679181900360200190a15050565b611ee96127a5565b6001600160a01b0316611efa611cf6565b6001600160a01b031614611f43576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b60998190556040805182815290517f9639dea65e74b72b1b86ccf3e4f9b6d23b88d2aad2f103d0b3afe394e67edade9181900360200190a150565b60026065541415611fc4576040805162461bcd60e51b815260206004820152601f6024820152600080516020612e4e833981519152604482015290519081900360640190fd5b60026065819055600083815260a76020526040902001544210156120195760405162461bcd60e51b815260040180806020018281038252602b815260200180612fe5602b913960400191505060405180910390fd5b600082815260a760205260409020546001600160a01b0316331461206e5760405162461bcd60e51b8152600401808060200182810382526026815260200180612f2f6026913960400191505060405180910390fd5b600082815260a760205260409020600101548111156120be5760405162461bcd60e51b8152600401808060200182810382526039815260200180612f836039913960400191505060405180910390fd5b600082815260a760205260409020600101546120da9082612627565b600083815260a7602052604090206001018190556121bf57600082815260a7602090815260408083206003015433845260a890925282208054919290612121836001612627565b8154811061212b57fe5b906000526020600020015490508060a86000336001600160a01b03166001600160a01b03168152602001908152602001600020848154811061216957fe5b600091825260208083209091019290925533815260a89091526040902080548061218f57fe5b60008281526020808220830160001990810183905590920190925591815260a79091526040902060030191909155505b60408051828152905183917ffe67007f52a1bf967323b00fd406f9028a8e8a88aec274e07a63b2fabacc64a7919081900360200190a2604051339082156108fc029083906000818181858888f19350505050158015612222573d6000803e3d6000fd5b5050600160655550565b60aa602052600090815260409020805460019091015460ff1682565b6001600160a01b038316600090815260a860205260408120546060919083908581038211156122775785810391505b60008267ffffffffffffffff8111801561229057600080fd5b506040519080825280602002602001820160405280156122ba578160200160208202803683370190505b50905060005b83811015612318576001600160a01b038916600090815260a8602052604090208054828a019081106122ee57fe5b906000526020600020015482828151811061230557fe5b60209081029190910101526001016122c0565b509795909101955050505050565b609e5481565b600060a154600014156123425750609d54611268565b61130861237160a154610a5e670de0b6b3a764000061236b60985461236b609c54610a39611cd8565b90612684565b609d549061274b565b60a65481565b6123886127a5565b6001600160a01b0316612399611cf6565b6001600160a01b0316146123e2576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b60a68190556040805182815290517ff97a17663f522a6e39a1959a585d48c02e511550942477b037e2e0de73d1db4f9181900360200190a150565b609f6020526000908152604090205481565b60995481565b609c5481565b6124436127a5565b6001600160a01b0316612454611cf6565b6001600160a01b03161461249d576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b60975442116124dd5760405162461bcd60e51b8152600401808060200182810382526058815260200180612df66058913960600191505060405180910390fd5b609a8190556040805182815290517ffb46ca5a5e06d4540d6387b930a7c978bce0db5f449ec6b3f5d07c6e1d44f2d39181900360200190a150565b60a95481565b60975481565b61252c6127a5565b6001600160a01b031661253d611cf6565b6001600160a01b031614612586576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b6001600160a01b0381166125cb5760405162461bcd60e51b8152600401808060200182810382526026815260200180612e6e6026913960400191505060405180910390fd5b6033546040516001600160a01b038084169216907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a3603380546001600160a01b0319166001600160a01b0392909216919091179055565b60008282111561267e576040805162461bcd60e51b815260206004820152601e60248201527f536166654d6174683a207375627472616374696f6e206f766572666c6f770000604482015290519081900360640190fd5b50900390565b60008261269357506000610a6a565b828202828482816126a057fe5b04146126dd5760405162461bcd60e51b81526004018080602001828103825260218152602001806130326021913960400191505060405180910390fd5b9392505050565b600080821161273a576040805162461bcd60e51b815260206004820152601a60248201527f536166654d6174683a206469766973696f6e206279207a65726f000000000000604482015290519081900360640190fd5b81838161274357fe5b049392505050565b6000828201838110156126dd576040805162461bcd60e51b815260206004820152601b60248201527f536166654d6174683a206164646974696f6e206f766572666c6f770000000000604482015290519081900360640190fd5b3390565b600081116127f0576040805162461bcd60e51b815260206004820152600f60248201526e043616e6e6f7420756e626f6e64203608c1b604482015290519081900360640190fd5b33600090815260a26020526040902054811115612854576040805162461bcd60e51b815260206004820152601e60248201527f43616e6e6f7420756e626f6e64206d6f7265207468616e207374616b65640000604482015290519081900360640190fd5b60a1546128619082612627565b60a15533600090815260a2602052604090205461287e9082612627565b33600090815260a2602052604090205560a95461289c90600161274b565b60a981905533600090815260a86020908152604082208054600181018255908352912001556128c9612dc4565b33815260208101829052609b546128e190429061274b565b60408083019190915233600090815260a86020522054612902906001612627565b606082810191825260a98054600090815260a76020908152604091829020865181546001600160a01b0319166001600160a01b039091161781558187015160018201558287015160028201559451600390950194909455905481518681524294810194909452838201525133927ffcc4bc9c6b8463463bcbae7de4078e3ef39ab55315563076c4061fc68ad4133792908290030190a25050565b33600090815260a060205260409020548015612a255733600081815260a060205260408082208290555183156108fc0291849190818181858888f193505050501580156129ed573d6000803e3d6000fd5b5060408051828152905133917fe2403640ba68fed3a2f88b7557551d1993f84b99bb10ff833f0cf8db0c5e0486919081900360200190a25b50565b6000612a3330612b7f565b15905090565b600054610100900460ff1680612a525750612a52612a28565b80612a60575060005460ff16155b612a9b5760405162461bcd60e51b815260040180806020018281038252602e815260200180612f55602e913960400191505060405180910390fd5b600054610100900460ff16158015612ac6576000805460ff1961ff0019909116610100171660011790555b612ace612b85565b612ad6612c25565b8015612a25576000805461ff001916905550565b600054610100900460ff1680612b035750612b03612a28565b80612b11575060005460ff16155b612b4c5760405162461bcd60e51b815260040180806020018281038252602e815260200180612f55602e913960400191505060405180910390fd5b600054610100900460ff16158015612b77576000805460ff1961ff0019909116610100171660011790555b612ad6612d1e565b3b151590565b600054610100900460ff1680612b9e5750612b9e612a28565b80612bac575060005460ff16155b612be75760405162461bcd60e51b815260040180806020018281038252602e815260200180612f55602e913960400191505060405180910390fd5b600054610100900460ff16158015612ad6576000805460ff1961ff0019909116610100171660011790558015612a25576000805461ff001916905550565b600054610100900460ff1680612c3e5750612c3e612a28565b80612c4c575060005460ff16155b612c875760405162461bcd60e51b815260040180806020018281038252602e815260200180612f55602e913960400191505060405180910390fd5b600054610100900460ff16158015612cb2576000805460ff1961ff0019909116610100171660011790555b6000612cbc6127a5565b603380546001600160a01b0319166001600160a01b038316908117909155604051919250906000907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a3508015612a25576000805461ff001916905550565b600054610100900460ff1680612d375750612d37612a28565b80612d45575060005460ff16155b612d805760405162461bcd60e51b815260040180806020018281038252602e815260200180612f55602e913960400191505060405180910390fd5b600054610100900460ff16158015612dab576000805460ff1961ff0019909116610100171660011790555b60016065558015612a25576000805461ff001916905550565b604051806080016040528060006001600160a01b03168152602001600081526020016000815260200160008152509056fe50726576696f7573207265776172647320706572696f64206d75737420626520636f6d706c657465206265666f7265206368616e67696e6720746865206475726174696f6e20666f7220746865206e657720706572696f645265656e7472616e637947756172643a207265656e7472616e742063616c6c004f776e61626c653a206e6577206f776e657220697320746865207a65726f20616464726573734f6e6c792072657761726473446973747269627574696f6e20636f6e747261637443616e6e6f7420646f207468697320616374696f6e2079657400000000000000416d6f756e7420746f206265206164646564206d7573742062652067726561746572207468616e2030507265707572636861736572732073686f756c64207374616b65207468652077686f6c6520657861637420616d6f756e744f6e6c79206f776e6572206f6620756e626f6e64696e672069642063616e20756e7374616b65496e697469616c697a61626c653a20636f6e747261637420697320616c726561647920696e697469616c697a656443616e6e6f7420756e7374616b65206d6f7265207468616e2072656d61696e696e6720616d6f756e7420696e20756e626f6e64696e672069644f6e6c7920507265707572636861736572732063616e2063616c6c20746869732066756e6374696f6e43616e6e6f7420756e7374616b65206265666f726520756e626f6e64696e6720706572696f6420656e647357686f6c652072657761726473416d6f756e742073686f756c642062652073656e74536166654d6174683a206d756c7469706c69636174696f6e206f766572666c6f774f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572507265707572636861736572732063616e206e6f726d616c6c79207374616b65206f6e6c792069662070726570757263686173657273206d6f6465206973206e6f74204f4e43616e6e6f742061646420707265707572636861736572732061667465722072657761726473206172652070726f7669646564a26469706673582212201407435977b845c4df7009a2c4af65b8dfded08f64c4015c9591454b9a45e05364736f6c63430007060033",
+  "deployedBytecode": "0x60806040526004361061027c5760003560e01c806371b77d0a1161014f578063a75da1e6116100c1578063c13d995c1161007a578063c13d995c14610941578063c8f33c9114610956578063cc1a378f1461096b578063de771e3514610995578063ebe2b12b146109aa578063f2fde38b146109bf5761027c565b8063a75da1e61461080b578063ae707184146108a5578063b012e2cc146108ba578063bd43c107146108cf578063be0143c9146108e4578063c09b4ed91461090e5761027c565b806389794b281161011357806389794b28146107265780638da5cb5b1461073b578063980b691f14610750578063998ed311146107655780639e2c8a5b1461078f578063a4b65397146107bf5761027c565b806371b77d0a146106785780637963bbfd1461068d5780637b0a47ee146106e75780637bdec1b6146106fc57806380faa57d146107115761027c565b80632838edc6116101f35780635e7654f8116101ac5780635e7654f8146105ad57806360f77190146105e05780636cf6d675146105e85780636e6f5bc4146105fd57806370a0823114610630578063715018a6146106635761027c565b80632838edc6146104d25780632b4656c81461050b578063386a9525146105665780633a4b66f11461057b5780633d18b912146105835780633fc6df6e146105985761027c565b806318160ddd1161024557806318160ddd146103e757806319762143146103fc5780631c1f78eb1461042f5780631d844c2d146104445780631fada4851461047757806327de9e32146104a85761027c565b80628cc262146102815780630700037d146102c65780630c51dde4146102f957806311adbf3c1461030357806315f7b402146103d2575b600080fd5b34801561028d57600080fd5b506102b4600480360360208110156102a457600080fd5b50356001600160a01b03166109f2565b60408051918252519081900360200190f35b3480156102d257600080fd5b506102b4600480360360208110156102e957600080fd5b50356001600160a01b0316610a70565b610301610a82565b005b34801561030f57600080fd5b506103016004803603604081101561032657600080fd5b81019060208101813564010000000081111561034157600080fd5b82018360208201111561035357600080fd5b8035906020019184602083028401116401000000008311171561037557600080fd5b91939092909160208101903564010000000081111561039357600080fd5b8201836020820111156103a557600080fd5b803590602001918460208302840111640100000000831117156103c757600080fd5b509092509050610e5e565b3480156103de57600080fd5b50610301611150565b3480156103f357600080fd5b506102b4611264565b34801561040857600080fd5b506103016004803603602081101561041f57600080fd5b50356001600160a01b031661126b565b34801561043b57600080fd5b506102b46112ef565b34801561045057600080fd5b506103016004803603602081101561046757600080fd5b50356001600160a01b031661130d565b34801561048357600080fd5b5061048c611391565b604080516001600160a01b039092168252519081900360200190f35b3480156104b457600080fd5b50610301600480360360208110156104cb57600080fd5b50356113a0565b3480156104de57600080fd5b506102b4600480360360408110156104f557600080fd5b506001600160a01b03813516906020013561149d565b34801561051757600080fd5b50610301600480360360e081101561052e57600080fd5b506001600160a01b03813581169160208101358216916040820135169060608101359060808101359060a08101359060c001356114ce565b34801561057257600080fd5b506102b46115ec565b6103016115f2565b34801561058f57600080fd5b506103016117af565b3480156105a457600080fd5b5061048c6118a1565b3480156105b957600080fd5b50610301600480360360208110156105d057600080fd5b50356001600160a01b03166118b0565b610301611934565b3480156105f457600080fd5b506102b4611ba4565b34801561060957600080fd5b506102b46004803603602081101561062057600080fd5b50356001600160a01b0316611baa565b34801561063c57600080fd5b506102b46004803603602081101561065357600080fd5b50356001600160a01b0316611bc5565b34801561066f57600080fd5b50610301611be0565b34801561068457600080fd5b5061048c611c8c565b34801561069957600080fd5b506106b7600480360360208110156106b057600080fd5b5035611c9b565b604080516001600160a01b0390951685526020850193909352838301919091526060830152519081900360800190f35b3480156106f357600080fd5b506102b4611ccc565b34801561070857600080fd5b506102b4611cd2565b34801561071d57600080fd5b506102b4611cd8565b34801561073257600080fd5b506102b4611cf0565b34801561074757600080fd5b5061048c611cf6565b34801561075c57600080fd5b50610301611d05565b34801561077157600080fd5b506103016004803603602081101561078857600080fd5b5035611ee1565b34801561079b57600080fd5b50610301600480360360408110156107b257600080fd5b5080359060200135611f7e565b3480156107cb57600080fd5b506107f2600480360360208110156107e257600080fd5b50356001600160a01b031661222c565b6040805192835290151560208301528051918290030190f35b34801561081757600080fd5b5061084a6004803603606081101561082e57600080fd5b506001600160a01b038135169060208101359060400135612248565b6040518080602001838152602001828103825284818151815260200191508051906020019060200280838360005b83811015610890578181015183820152602001610878565b50505050905001935050505060405180910390f35b3480156108b157600080fd5b506102b4612326565b3480156108c657600080fd5b506102b461232c565b3480156108db57600080fd5b506102b461237a565b3480156108f057600080fd5b506103016004803603602081101561090757600080fd5b5035612380565b34801561091a57600080fd5b506102b46004803603602081101561093157600080fd5b50356001600160a01b031661241d565b34801561094d57600080fd5b506102b461242f565b34801561096257600080fd5b506102b4612435565b34801561097757600080fd5b506103016004803603602081101561098e57600080fd5b503561243b565b3480156109a157600080fd5b506102b4612518565b3480156109b657600080fd5b506102b461251e565b3480156109cb57600080fd5b50610301600480360360208110156109e257600080fd5b50356001600160a01b0316612524565b6001600160a01b038116600090815260a06020908152604080832054609f909252822054610a6a9190610a6490670de0b6b3a764000090610a5e90610a3f90610a3961232c565b90612627565b6001600160a01b038816600090815260a2602052604090205490612684565b906126e4565b9061274b565b92915050565b60a06020526000908152604090205481565b60a3546001600160a01b03163314610acb5760405162461bcd60e51b8152600401808060200182810382526021815260200180612e946021913960400191505060405180910390fd5b6000610ad561232c565b609d55610ae0611cd8565b609c556001600160a01b03811615610b2757610afb816109f2565b6001600160a01b038216600090815260a06020908152604080832093909355609d54609f909152919020555b6099543414610b675760405162461bcd60e51b81526004018080602001828103825260228152602001806130106022913960400191505060405180910390fd5b60a5546040805163f784a7b760e01b815290516000926001600160a01b03169163f784a7b7916004808301926020929190829003018186803b158015610bac57600080fd5b505afa158015610bc0573d6000803e3d6000fd5b505050506040513d6020811015610bd657600080fd5b505160a554604080516375c8e9bf60e11b815290519293506000926001600160a01b039092169163eb91d37e91600480820192602092909190829003018186803b158015610c2357600080fd5b505afa158015610c37573d6000803e3d6000fd5b505050506040513d6020811015610c4d57600080fd5b505160a6549091506000908311610c675750609954610d76565b818311610d725760a45460408051631a46d32f60e01b815290516000926001600160a01b031691631a46d32f916004808301926020929190829003018186803b158015610cb357600080fd5b505afa158015610cc7573d6000803e3d6000fd5b505050506040513d6020811015610cdd57600080fd5b505190508015801590610cf85750670de0b6b3a76400008111155b610d49576040805162461bcd60e51b815260206004820152601b60248201527f57726f6e672064616f206d756c7469706c696572206c696d6974730000000000604482015290519081900360640190fd5b610d6a670de0b6b3a7640000610a5e8360995461268490919063ffffffff16565b915050610d76565b5060005b6097544210610d9557609a54610d8d9082906126e4565b609855610dd8565b609754600090610da59042612627565b90506000610dbe6098548361268490919063ffffffff16565b609a54909150610dd290610a5e858461274b565b60985550505b42609c819055609a54610deb919061274b565b6097556040805182815290517fde88a922e0d3b88b24e9623efeb464919c6bf9f66857a65e2bfcf2ce87a9433d9181900360200190a1336108fc610e2f3484612627565b6040518115909202916000818181858888f19350505050158015610e57573d6000803e3d6000fd5b5050505050565b610e666127a5565b6001600160a01b0316610e77611cf6565b6001600160a01b031614610ec0576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b60985415610eff5760405162461bcd60e51b81526004018080602001828103825260338152602001806130b86033913960400191505060405180910390fd5b8281148015610f0d57508215155b610f4c576040805162461bcd60e51b815260206004820152600b60248201526a15dc9bdb99c81a5b9c1d5d60aa1b604482015290519081900360640190fd5b60005b83811015610e57576000838383818110610f6557fe5b9050602002013511610fa85760405162461bcd60e51b8152600401808060200182810382526029815260200180612ed56029913960400191505060405180910390fd5b60aa6000868684818110610fb857fe5b905060200201356001600160a01b03166001600160a01b03166001600160a01b0316815260200190815260200160002060000154600014611040576040805162461bcd60e51b815260206004820152601d60248201527f43616e6e6f74206164642070726570757263686173657220616761696e000000604482015290519081900360640190fd5b82828281811061104c57fe5b9050602002013560aa600087878581811061106357fe5b602090810292909201356001600160a01b0316835250810191909152604001600020556110ad83838381811061109557fe5b9050602002013560a15461274b90919063ffffffff16565b60a1556110d78383838181106110bf57fe5b9050602002013560ab5461274b90919063ffffffff16565b60ab558484828181106110e657fe5b905060200201356001600160a01b03166001600160a01b03167f13293501fbf987deb63d1dceffaa787e720de4c85e6a2a5afdf86d16979d2dac84848481811061112c57fe5b905060200201356040518082815260200191505060405180910390a2600101610f4f565b60026065541415611196576040805162461bcd60e51b815260206004820152601f6024820152600080516020612e4e833981519152604482015290519081900360640190fd5b6002606555609e544210156111e0576040805162461bcd60e51b81526020600482015260196024820152600080516020612eb5833981519152604482015290519081900360640190fd5b336111e961232c565b609d556111f4611cd8565b609c556001600160a01b0381161561123b5761120f816109f2565b6001600160a01b038216600090815260a06020908152604080832093909355609d54609f909152919020555b33600090815260a26020526040902054611254906127a9565b61125c61299c565b506001606555565b60a1545b90565b6112736127a5565b6001600160a01b0316611284611cf6565b6001600160a01b0316146112cd576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b60a380546001600160a01b0319166001600160a01b0392909216919091179055565b6000611308609a5460985461268490919063ffffffff16565b905090565b6113156127a5565b6001600160a01b0316611326611cf6565b6001600160a01b03161461136f576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b60a580546001600160a01b0319166001600160a01b0392909216919091179055565b60a5546001600160a01b031681565b600260655414156113e6576040805162461bcd60e51b815260206004820152601f6024820152600080516020612e4e833981519152604482015290519081900360640190fd5b6002606555609e54421015611430576040805162461bcd60e51b81526020600482015260196024820152600080516020612eb5833981519152604482015290519081900360640190fd5b3361143961232c565b609d55611444611cd8565b609c556001600160a01b0381161561148b5761145f816109f2565b6001600160a01b038216600090815260a06020908152604080832093909355609d54609f909152919020555b611494826127a9565b50506001606555565b60a860205281600052604060002081815481106114b957600080fd5b90600052602060002001600091509150505481565b600054610100900460ff16806114e757506114e7612a28565b806114f5575060005460ff16155b6115305760405162461bcd60e51b815260040180806020018281038252602e815260200180612f55602e913960400191505060405180910390fd5b600054610100900460ff1615801561155b576000805460ff1961ff0019909116610100171660011790555b611563612a39565b61156b612aea565b60a380546001600160a01b03808b166001600160a01b03199283161790925560a480548a841690831617905560a5805492891692909116919091179055609e859055609a849055609983905560a682905560ac805460ff191660011790556224ea00609b5580156115e2576000805461ff00191690555b5050505050505050565b609a5481565b60026065541415611638576040805162461bcd60e51b815260206004820152601f6024820152600080516020612e4e833981519152604482015290519081900360640190fd5b60026065553361164661232c565b609d55611651611cd8565b609c556001600160a01b038116156116985761166c816109f2565b6001600160a01b038216600090815260a06020908152604080832093909355609d54609f909152919020555b33600090815260aa6020526040902054156116ef5760ac5460ff16156116ef5760405162461bcd60e51b81526004018080602001828103825260458152602001806130736045913960600191505060405180910390fd5b3480611733576040805162461bcd60e51b815260206004820152600e60248201526d043616e6e6f74207374616b6520360941b604482015290519081900360640190fd5b60a154611740908261274b565b60a15533600090815260a2602052604090205461175d908261274b565b33600081815260a26020908152604091829020939093558051848152905191927f9e71bc8eea02a63969f509818f2dafb9254532904319f9dbda79b67bd34a5f3d92918290030190a250506001606555565b600260655414156117f5576040805162461bcd60e51b815260206004820152601f6024820152600080516020612e4e833981519152604482015290519081900360640190fd5b6002606555609e5442101561183f576040805162461bcd60e51b81526020600482015260196024820152600080516020612eb5833981519152604482015290519081900360640190fd5b3361184861232c565b609d55611853611cd8565b609c556001600160a01b038116156112545761186e816109f2565b6001600160a01b038216600090815260a06020908152604080832093909355609d54609f9091529190205561125c61299c565b60a3546001600160a01b031681565b6118b86127a5565b6001600160a01b03166118c9611cf6565b6001600160a01b031614611912576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b60a480546001600160a01b0319166001600160a01b0392909216919091179055565b6002606554141561197a576040805162461bcd60e51b815260206004820152601f6024820152600080516020612e4e833981519152604482015290519081900360640190fd5b6002606555609e544210156119c4576040805162461bcd60e51b81526020600482015260196024820152600080516020612eb5833981519152604482015290519081900360640190fd5b60ac5460ff16611a1b576040805162461bcd60e51b815260206004820181905260248201527f4f6e6c792069662070726570757263686173657273206d6f6465206973204f4e604482015290519081900360640190fd5b33600090815260aa602052604090206001015460ff1615611a78576040805162461bcd60e51b815260206004820152601260248201527121b0b73737ba1039ba30b5b29030b3b0b4b760711b604482015290519081900360640190fd5b33600090815260aa6020526040902054611ac35760405162461bcd60e51b8152600401808060200182810382526029815260200180612fbc6029913960400191505060405180910390fd5b33600090815260aa60205260409020543414611b105760405162461bcd60e51b8152600401808060200182810382526031815260200180612efe6031913960400191505060405180910390fd5b33600090815260aa602090815260408083206001908101805460ff1916909117905560a29091529020543490611b46908261274b565b33600090815260a2602052604090205560ab54611b639082612627565b60ab5560408051828152905133917ff4650017e68313b5cc887c6c31bf2fccb37d17c7ad3805c78f6f22c9e3849163919081900360200190a2506001606555565b609b5481565b6001600160a01b0316600090815260a8602052604090205490565b6001600160a01b0316600090815260a2602052604090205490565b611be86127a5565b6001600160a01b0316611bf9611cf6565b6001600160a01b031614611c42576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b6033546040516000916001600160a01b0316907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a3603380546001600160a01b0319169055565b60a4546001600160a01b031681565b60a76020526000908152604090208054600182015460028301546003909301546001600160a01b0390921692909184565b60985481565b60ab5481565b60006097544210611ceb57609754611308565b504290565b609d5481565b6033546001600160a01b031690565b611d0d6127a5565b6001600160a01b0316611d1e611cf6565b6001600160a01b031614611d67576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b609e54421015611dac576040805162461bcd60e51b81526020600482015260196024820152600080516020612eb5833981519152604482015290519081900360640190fd5b60ac5460ff16611e03576040805162461bcd60e51b815260206004820181905260248201527f4f6e6c792069662070726570757263686173657273206d6f6465206973204f4e604482015290519081900360640190fd5b60ac805460ff191690556000611e2f670de0b6b3a7640000610a5e611e2661232c565b60ab5490612684565b90506000611e4a60ab5460a15461262790919063ffffffff16565b9050611e6760a154610a5e8360985461268490919063ffffffff16565b60985560a181905560a3546040516001600160a01b039091169083156108fc029084906000818181858888f19350505050158015611ea9573d6000803e3d6000fd5b506040805183815290517f633f23524f0640305e167d2acdd34280fda7e4d099f74f6f40016c1b6e6629679181900360200190a15050565b611ee96127a5565b6001600160a01b0316611efa611cf6565b6001600160a01b031614611f43576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b60998190556040805182815290517f9639dea65e74b72b1b86ccf3e4f9b6d23b88d2aad2f103d0b3afe394e67edade9181900360200190a150565b60026065541415611fc4576040805162461bcd60e51b815260206004820152601f6024820152600080516020612e4e833981519152604482015290519081900360640190fd5b60026065819055600083815260a76020526040902001544210156120195760405162461bcd60e51b815260040180806020018281038252602b815260200180612fe5602b913960400191505060405180910390fd5b600082815260a760205260409020546001600160a01b0316331461206e5760405162461bcd60e51b8152600401808060200182810382526026815260200180612f2f6026913960400191505060405180910390fd5b600082815260a760205260409020600101548111156120be5760405162461bcd60e51b8152600401808060200182810382526039815260200180612f836039913960400191505060405180910390fd5b600082815260a760205260409020600101546120da9082612627565b600083815260a7602052604090206001018190556121bf57600082815260a7602090815260408083206003015433845260a890925282208054919290612121836001612627565b8154811061212b57fe5b906000526020600020015490508060a86000336001600160a01b03166001600160a01b03168152602001908152602001600020848154811061216957fe5b600091825260208083209091019290925533815260a89091526040902080548061218f57fe5b60008281526020808220830160001990810183905590920190925591815260a79091526040902060030191909155505b60408051828152905183917ffe67007f52a1bf967323b00fd406f9028a8e8a88aec274e07a63b2fabacc64a7919081900360200190a2604051339082156108fc029083906000818181858888f19350505050158015612222573d6000803e3d6000fd5b5050600160655550565b60aa602052600090815260409020805460019091015460ff1682565b6001600160a01b038316600090815260a860205260408120546060919083908581038211156122775785810391505b60008267ffffffffffffffff8111801561229057600080fd5b506040519080825280602002602001820160405280156122ba578160200160208202803683370190505b50905060005b83811015612318576001600160a01b038916600090815260a8602052604090208054828a019081106122ee57fe5b906000526020600020015482828151811061230557fe5b60209081029190910101526001016122c0565b509795909101955050505050565b609e5481565b600060a154600014156123425750609d54611268565b61130861237160a154610a5e670de0b6b3a764000061236b60985461236b609c54610a39611cd8565b90612684565b609d549061274b565b60a65481565b6123886127a5565b6001600160a01b0316612399611cf6565b6001600160a01b0316146123e2576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b60a68190556040805182815290517ff97a17663f522a6e39a1959a585d48c02e511550942477b037e2e0de73d1db4f9181900360200190a150565b609f6020526000908152604090205481565b60995481565b609c5481565b6124436127a5565b6001600160a01b0316612454611cf6565b6001600160a01b03161461249d576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b60975442116124dd5760405162461bcd60e51b8152600401808060200182810382526058815260200180612df66058913960600191505060405180910390fd5b609a8190556040805182815290517ffb46ca5a5e06d4540d6387b930a7c978bce0db5f449ec6b3f5d07c6e1d44f2d39181900360200190a150565b60a95481565b60975481565b61252c6127a5565b6001600160a01b031661253d611cf6565b6001600160a01b031614612586576040805162461bcd60e51b81526020600482018190526024820152600080516020613053833981519152604482015290519081900360640190fd5b6001600160a01b0381166125cb5760405162461bcd60e51b8152600401808060200182810382526026815260200180612e6e6026913960400191505060405180910390fd5b6033546040516001600160a01b038084169216907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a3603380546001600160a01b0319166001600160a01b0392909216919091179055565b60008282111561267e576040805162461bcd60e51b815260206004820152601e60248201527f536166654d6174683a207375627472616374696f6e206f766572666c6f770000604482015290519081900360640190fd5b50900390565b60008261269357506000610a6a565b828202828482816126a057fe5b04146126dd5760405162461bcd60e51b81526004018080602001828103825260218152602001806130326021913960400191505060405180910390fd5b9392505050565b600080821161273a576040805162461bcd60e51b815260206004820152601a60248201527f536166654d6174683a206469766973696f6e206279207a65726f000000000000604482015290519081900360640190fd5b81838161274357fe5b049392505050565b6000828201838110156126dd576040805162461bcd60e51b815260206004820152601b60248201527f536166654d6174683a206164646974696f6e206f766572666c6f770000000000604482015290519081900360640190fd5b3390565b600081116127f0576040805162461bcd60e51b815260206004820152600f60248201526e043616e6e6f7420756e626f6e64203608c1b604482015290519081900360640190fd5b33600090815260a26020526040902054811115612854576040805162461bcd60e51b815260206004820152601e60248201527f43616e6e6f7420756e626f6e64206d6f7265207468616e207374616b65640000604482015290519081900360640190fd5b60a1546128619082612627565b60a15533600090815260a2602052604090205461287e9082612627565b33600090815260a2602052604090205560a95461289c90600161274b565b60a981905533600090815260a86020908152604082208054600181018255908352912001556128c9612dc4565b33815260208101829052609b546128e190429061274b565b60408083019190915233600090815260a86020522054612902906001612627565b606082810191825260a98054600090815260a76020908152604091829020865181546001600160a01b0319166001600160a01b039091161781558187015160018201558287015160028201559451600390950194909455905481518681524294810194909452838201525133927ffcc4bc9c6b8463463bcbae7de4078e3ef39ab55315563076c4061fc68ad4133792908290030190a25050565b33600090815260a060205260409020548015612a255733600081815260a060205260408082208290555183156108fc0291849190818181858888f193505050501580156129ed573d6000803e3d6000fd5b5060408051828152905133917fe2403640ba68fed3a2f88b7557551d1993f84b99bb10ff833f0cf8db0c5e0486919081900360200190a25b50565b6000612a3330612b7f565b15905090565b600054610100900460ff1680612a525750612a52612a28565b80612a60575060005460ff16155b612a9b5760405162461bcd60e51b815260040180806020018281038252602e815260200180612f55602e913960400191505060405180910390fd5b600054610100900460ff16158015612ac6576000805460ff1961ff0019909116610100171660011790555b612ace612b85565b612ad6612c25565b8015612a25576000805461ff001916905550565b600054610100900460ff1680612b035750612b03612a28565b80612b11575060005460ff16155b612b4c5760405162461bcd60e51b815260040180806020018281038252602e815260200180612f55602e913960400191505060405180910390fd5b600054610100900460ff16158015612b77576000805460ff1961ff0019909116610100171660011790555b612ad6612d1e565b3b151590565b600054610100900460ff1680612b9e5750612b9e612a28565b80612bac575060005460ff16155b612be75760405162461bcd60e51b815260040180806020018281038252602e815260200180612f55602e913960400191505060405180910390fd5b600054610100900460ff16158015612ad6576000805460ff1961ff0019909116610100171660011790558015612a25576000805461ff001916905550565b600054610100900460ff1680612c3e5750612c3e612a28565b80612c4c575060005460ff16155b612c875760405162461bcd60e51b815260040180806020018281038252602e815260200180612f55602e913960400191505060405180910390fd5b600054610100900460ff16158015612cb2576000805460ff1961ff0019909116610100171660011790555b6000612cbc6127a5565b603380546001600160a01b0319166001600160a01b038316908117909155604051919250906000907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a3508015612a25576000805461ff001916905550565b600054610100900460ff1680612d375750612d37612a28565b80612d45575060005460ff16155b612d805760405162461bcd60e51b815260040180806020018281038252602e815260200180612f55602e913960400191505060405180910390fd5b600054610100900460ff16158015612dab576000805460ff1961ff0019909116610100171660011790555b60016065558015612a25576000805461ff001916905550565b604051806080016040528060006001600160a01b03168152602001600081526020016000815260200160008152509056fe50726576696f7573207265776172647320706572696f64206d75737420626520636f6d706c657465206265666f7265206368616e67696e6720746865206475726174696f6e20666f7220746865206e657720706572696f645265656e7472616e637947756172643a207265656e7472616e742063616c6c004f776e61626c653a206e6577206f776e657220697320746865207a65726f20616464726573734f6e6c792072657761726473446973747269627574696f6e20636f6e747261637443616e6e6f7420646f207468697320616374696f6e2079657400000000000000416d6f756e7420746f206265206164646564206d7573742062652067726561746572207468616e2030507265707572636861736572732073686f756c64207374616b65207468652077686f6c6520657861637420616d6f756e744f6e6c79206f776e6572206f6620756e626f6e64696e672069642063616e20756e7374616b65496e697469616c697a61626c653a20636f6e747261637420697320616c726561647920696e697469616c697a656443616e6e6f7420756e7374616b65206d6f7265207468616e2072656d61696e696e6720616d6f756e7420696e20756e626f6e64696e672069644f6e6c7920507265707572636861736572732063616e2063616c6c20746869732066756e6374696f6e43616e6e6f7420756e7374616b65206265666f726520756e626f6e64696e6720706572696f6420656e647357686f6c652072657761726473416d6f756e742073686f756c642062652073656e74536166654d6174683a206d756c7469706c69636174696f6e206f766572666c6f774f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572507265707572636861736572732063616e206e6f726d616c6c79207374616b65206f6e6c792069662070726570757263686173657273206d6f6465206973206e6f74204f4e43616e6e6f742061646420707265707572636861736572732061667465722072657761726473206172652070726f7669646564a26469706673582212201407435977b845c4df7009a2c4af65b8dfded08f64c4015c9591454b9a45e05364736f6c63430007060033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "addPrePurchasers(address[],uint256[])": {
+        "details": "This function can be called by the owner to add prepurchasers.",
+        "params": {
+          "amounts": "The array of the amounts to be added for each prepurchaser.",
+          "prePurchasers": "The array of the prepurchasers' addresses to be added."
+        }
+      },
+      "finishPrePurchasersMode()": {
+        "details": "This function can be called by the owner to finish the prepurchasers mode."
+      },
+      "getReward()": {
+        "details": "This function is used by users to get their rewards."
+      },
+      "initialize(address,address,address,uint256,uint256,uint256,uint256)": {
+        "params": {
+          "lowestVotingBoundPrice_": "The lowest voting bound price for SHFT.",
+          "prePurchasersReleaseTimestamp_": "The timestamp at which the pre purchasers amounts are released",
+          "priceFeeder_": "The address of the priceFeeder contract.",
+          "rewardsAmount_": "The normal amount provided as reward every period.",
+          "rewardsDistribution_": "The address of the rewardsDistribution contract.",
+          "rewardsDuration_": "The duration of a period.",
+          "shyftDao_": "The address of the shyftDao contract."
+        }
+      },
+      "notifyRewardAmount()": {
+        "details": "This function can only be called by rewardsDistribution contract to provide rewards."
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+      },
+      "setLowestVotingBoundPrice(uint256)": {
+        "details": "This function can be called by the owner to change the lowest voting bound price.",
+        "params": {
+          "lowestVotingBoundPrice_": "The new lowest voting bound price."
+        }
+      },
+      "setPriceFeeder(address)": {
+        "details": "This function can be called by the owner to change the priceFeeder contract.",
+        "params": {
+          "priceFeeder_": "The new priceFeeder address."
+        }
+      },
+      "setRewardsAmount(uint256)": {
+        "details": "This function can be called by the owner to change the normal rewards amount.",
+        "params": {
+          "rewardsAmount_": "The new rewards amount."
+        }
+      },
+      "setRewardsDistribution(address)": {
+        "details": "This function can be called by the owner to change the rewardsDistribution address.",
+        "params": {
+          "rewardsDistribution_": "The new rewardsDistribution address."
+        }
+      },
+      "setRewardsDuration(uint256)": {
+        "details": "This function can be called by the owner to change the rewards period.",
+        "params": {
+          "rewardsDuration_": "The new rewards duration."
+        }
+      },
+      "setShyftDao(address)": {
+        "details": "This function can be called by the owner to change the shyftDao contract.",
+        "params": {
+          "shyftDao_": "The new shyftDao address."
+        }
+      },
+      "stake()": {
+        "details": "This function is used by users to stake."
+      },
+      "stakePrePurchaser()": {
+        "details": "This function is used by prepurchasers so that they can add the amount needed to be eligiblefor already farmed rewards."
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      },
+      "unbond(uint256)": {
+        "details": "This function is used by users to unbond part of their stake.",
+        "params": {
+          "amount": "The amount to be unbonded."
+        }
+      },
+      "unbondAll()": {
+        "details": "This function is used by users to unbond their whole stake."
+      },
+      "unstake(uint256,uint256)": {
+        "details": "This function is used by users to unstake their unbonded stakes.",
+        "params": {
+          "amount": "The amount from the unbonding id, which user would like to unstake.",
+          "unbondingId": "The unbondingId from which user would like to unstake."
+        }
+      }
+    },
+    "title": "ShyftStaking Contract",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "addPrePurchasers(address[],uint256[])": {
+        "notice": "AddPrePurchasersCan only be called before any rewards have been provided.Careful on inputs creation, prepurchasers already added cannot be added again."
+      },
+      "finishPrePurchasersMode()": {
+        "notice": "FinishPrePurchasersModeAfter that function is called prepurchasers that have not yet staked are losingalready farmed rewards, which are returned back to the rewardsDistribution contract."
+      },
+      "getReward()": {
+        "notice": "GetRewardThis function can only be called after prepurchasers' release happens."
+      },
+      "initialize(address,address,address,uint256,uint256,uint256,uint256)": {
+        "notice": "Initialize the contract."
+      },
+      "notifyRewardAmount()": {
+        "notice": "NotifyRewardAmount"
+      },
+      "setLowestVotingBoundPrice(uint256)": {
+        "notice": "SetLowestVotingBoundPrice"
+      },
+      "setPriceFeeder(address)": {
+        "notice": "setPriceFeeder"
+      },
+      "setRewardsAmount(uint256)": {
+        "notice": "SetRewardsAmount"
+      },
+      "setRewardsDistribution(address)": {
+        "notice": "setRewardsDistribution"
+      },
+      "setRewardsDuration(uint256)": {
+        "notice": "SetRewardsDurationCan only be called after previous rewards period has finished."
+      },
+      "setShyftDao(address)": {
+        "notice": "setShyftDao"
+      },
+      "stake()": {
+        "notice": "StakePrepurchasers cannot stake till the prepurchasers mode goes off."
+      },
+      "stakePrePurchaser()": {
+        "notice": "Stake for prepurchasersPrepurchasers can only use this function after their release and only if prepurchasers mode is on."
+      },
+      "unbond(uint256)": {
+        "notice": "UnbondThis function can only be called after prepurchasers' release happens."
+      },
+      "unbondAll()": {
+        "notice": "UnbondAllThis function can only be called after prepurchasers' release happens."
+      },
+      "unstake(uint256,uint256)": {
+        "notice": "UnstakeThis function is associated with an unbonding id generated from the unbond function.Must have passed at least time equal to unbondingPeriod between unbond and unstakefor users to be able to unstake."
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 137,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 140,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 484,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 10,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 129,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 499,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "_status",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 542,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 920,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "periodFinish",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 922,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "rewardRate",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 924,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "rewardsAmount",
+        "offset": 0,
+        "slot": "153",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 926,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "rewardsDuration",
+        "offset": 0,
+        "slot": "154",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 928,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "unbondingPeriod",
+        "offset": 0,
+        "slot": "155",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 930,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "lastUpdateTime",
+        "offset": 0,
+        "slot": "156",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 932,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "rewardPerShftStored",
+        "offset": 0,
+        "slot": "157",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 934,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "prePurchasersReleaseTimestamp",
+        "offset": 0,
+        "slot": "158",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 938,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "userRewardPerShftPaid",
+        "offset": 0,
+        "slot": "159",
+        "type": "t_mapping(t_address,t_uint256)"
+      },
+      {
+        "astId": 942,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "rewards",
+        "offset": 0,
+        "slot": "160",
+        "type": "t_mapping(t_address,t_uint256)"
+      },
+      {
+        "astId": 944,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "_totalSupply",
+        "offset": 0,
+        "slot": "161",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 948,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "_balances",
+        "offset": 0,
+        "slot": "162",
+        "type": "t_mapping(t_address,t_uint256)"
+      },
+      {
+        "astId": 950,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "rewardsDistribution",
+        "offset": 0,
+        "slot": "163",
+        "type": "t_address"
+      },
+      {
+        "astId": 952,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "shyftDao",
+        "offset": 0,
+        "slot": "164",
+        "type": "t_contract(IShyftDao)2311"
+      },
+      {
+        "astId": 954,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "priceFeeder",
+        "offset": 0,
+        "slot": "165",
+        "type": "t_contract(IPriceFeeder)2302"
+      },
+      {
+        "astId": 956,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "lowestVotingBoundPrice",
+        "offset": 0,
+        "slot": "166",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 969,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "unbondingDetailsForId",
+        "offset": 0,
+        "slot": "167",
+        "type": "t_mapping(t_uint256,t_struct(UnbondingDetails)965_storage)"
+      },
+      {
+        "astId": 974,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "unbondingIdsPerAddress",
+        "offset": 0,
+        "slot": "168",
+        "type": "t_mapping(t_address,t_array(t_uint256)dyn_storage)"
+      },
+      {
+        "astId": 976,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "totalUnbondings",
+        "offset": 0,
+        "slot": "169",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 985,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "prePurchasersDetails",
+        "offset": 0,
+        "slot": "170",
+        "type": "t_mapping(t_address,t_struct(PrePurchaserDetails)981_storage)"
+      },
+      {
+        "astId": 987,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "totalPrePurchasersAmountToBeStaked",
+        "offset": 0,
+        "slot": "171",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 989,
+        "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+        "label": "prePurchasersModeOn",
+        "offset": 0,
+        "slot": "172",
+        "type": "t_bool"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)49_storage": {
+        "base": "t_uint256",
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568"
+      },
+      "t_array(t_uint256)50_storage": {
+        "base": "t_uint256",
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600"
+      },
+      "t_array(t_uint256)dyn_storage": {
+        "base": "t_uint256",
+        "encoding": "dynamic_array",
+        "label": "uint256[]",
+        "numberOfBytes": "32"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_contract(IPriceFeeder)2302": {
+        "encoding": "inplace",
+        "label": "contract IPriceFeeder",
+        "numberOfBytes": "20"
+      },
+      "t_contract(IShyftDao)2311": {
+        "encoding": "inplace",
+        "label": "contract IShyftDao",
+        "numberOfBytes": "20"
+      },
+      "t_mapping(t_address,t_array(t_uint256)dyn_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256[])",
+        "numberOfBytes": "32",
+        "value": "t_array(t_uint256)dyn_storage"
+      },
+      "t_mapping(t_address,t_struct(PrePurchaserDetails)981_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct ShyftStaking.PrePurchaserDetails)",
+        "numberOfBytes": "32",
+        "value": "t_struct(PrePurchaserDetails)981_storage"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_uint256,t_struct(UnbondingDetails)965_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct ShyftStaking.UnbondingDetails)",
+        "numberOfBytes": "32",
+        "value": "t_struct(UnbondingDetails)965_storage"
+      },
+      "t_struct(PrePurchaserDetails)981_storage": {
+        "encoding": "inplace",
+        "label": "struct ShyftStaking.PrePurchaserDetails",
+        "members": [
+          {
+            "astId": 978,
+            "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+            "label": "amountAdded",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 980,
+            "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+            "label": "staked",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_bool"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_struct(UnbondingDetails)965_storage": {
+        "encoding": "inplace",
+        "label": "struct ShyftStaking.UnbondingDetails",
+        "members": [
+          {
+            "astId": 958,
+            "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+            "label": "account",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 960,
+            "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+            "label": "remainingAmount",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 962,
+            "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+            "label": "unstakeEnabledTimestamp",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 964,
+            "contract": "contracts/ShyftStaking.sol:ShyftStaking",
+            "label": "indexIntoUnbondingArray",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256"
+          }
+        ],
+        "numberOfBytes": "128"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

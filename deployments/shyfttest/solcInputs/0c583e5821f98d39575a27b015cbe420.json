@@ -1,0 +1,38 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/interfaces/IShyftStaking.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity 0.7.6;\n\n/**\n * @title ShyftStaking interface\n */\ninterface IShyftStaking {\n    function notifyRewardAmount() external payable;\n}\n"
+    },
+    "contracts/test/RewardsDistribution.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity 0.7.6;\n\nimport {IShyftStaking} from '../interfaces/IShyftStaking.sol';\n\n/**\n * @title RewardsDistribution test contract\n * @dev WARNING Only for testing purposes.\n */\ncontract RewardsDistribution {\n    IShyftStaking public shyftStaking;\n\n    uint256 constant REWARD_AMOUNT = 10 ether;\n\n    receive() external payable {}\n\n    function setShyftStaking(address shyftStaking_) external {\n        shyftStaking = IShyftStaking(shyftStaking_);\n    }\n\n    function provideRewards() external {\n        shyftStaking.notifyRewardAmount{value: REWARD_AMOUNT}();\n    }\n\n    function getBalance() external view returns(uint256 balance) {\n        balance = address(this).balance;\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

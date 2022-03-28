@@ -1,0 +1,107 @@
+{
+  "address": "0x40f906e19B14100D5247686E08053c4873c66192",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getBalance",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "balance",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "provideRewards",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "shyftStaking_",
+          "type": "address"
+        }
+      ],
+      "name": "setShyftStaking",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "shyftStaking",
+      "outputs": [
+        {
+          "internalType": "contract IShyftStaking",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "transactionHash": "0x5c388a182a5639ddd64fa5ddaae4a52c678f82b008b98ba75798b4a36f620680",
+  "receipt": {
+    "to": null,
+    "from": "0x9De5B00012A27b3efd50d5B90bF2e07413cED178",
+    "contractAddress": "0x40f906e19B14100D5247686E08053c4873c66192",
+    "transactionIndex": 0,
+    "gasUsed": "152701",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x996879ddf794aea1bfd40afe6d2ff4ec47f0a92928cc763f1e506396164ecccd",
+    "transactionHash": "0x5c388a182a5639ddd64fa5ddaae4a52c678f82b008b98ba75798b4a36f620680",
+    "logs": [],
+    "blockNumber": 2876482,
+    "cumulativeGasUsed": "152701",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "solcInputHash": "0c583e5821f98d39575a27b015cbe420",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"balance\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"provideRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"shyftStaking_\",\"type\":\"address\"}],\"name\":\"setShyftStaking\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"shyftStaking\",\"outputs\":[{\"internalType\":\"contract IShyftStaking\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"details\":\"WARNING Only for testing purposes.\",\"kind\":\"dev\",\"methods\":{},\"title\":\"RewardsDistribution test contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/test/RewardsDistribution.sol\":\"RewardsDistribution\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/interfaces/IShyftStaking.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.7.6;\\n\\n/**\\n * @title ShyftStaking interface\\n */\\ninterface IShyftStaking {\\n    function notifyRewardAmount() external payable;\\n}\\n\",\"keccak256\":\"0x44ab2a96667e13548ace649d97f443d2c2e14cf8b97006dba431fefd8e0478ce\",\"license\":\"MIT\"},\"contracts/test/RewardsDistribution.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.7.6;\\n\\nimport {IShyftStaking} from '../interfaces/IShyftStaking.sol';\\n\\n/**\\n * @title RewardsDistribution test contract\\n * @dev WARNING Only for testing purposes.\\n */\\ncontract RewardsDistribution {\\n    IShyftStaking public shyftStaking;\\n\\n    uint256 constant REWARD_AMOUNT = 10 ether;\\n\\n    receive() external payable {}\\n\\n    function setShyftStaking(address shyftStaking_) external {\\n        shyftStaking = IShyftStaking(shyftStaking_);\\n    }\\n\\n    function provideRewards() external {\\n        shyftStaking.notifyRewardAmount{value: REWARD_AMOUNT}();\\n    }\\n\\n    function getBalance() external view returns(uint256 balance) {\\n        balance = address(this).balance;\\n    }\\n}\\n\",\"keccak256\":\"0x4d1e38dbaa1b4910df7e7f85b68cd07de2caa1827e0d27ce765bd53f88a1c29a\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506101cd806100206000396000f3fe6080604052600436106100435760003560e01c80631048909e1461004f57806312065fe014610080578063b862275c146100a7578063e2247bd1146100dc5761004a565b3661004a57005b600080fd5b34801561005b57600080fd5b506100646100f1565b604080516001600160a01b039092168252519081900360200190f35b34801561008c57600080fd5b50610095610100565b60408051918252519081900360200190f35b3480156100b357600080fd5b506100da600480360360208110156100ca57600080fd5b50356001600160a01b0316610104565b005b3480156100e857600080fd5b506100da610126565b6000546001600160a01b031681565b4790565b600080546001600160a01b0319166001600160a01b0392909216919091179055565b60008054906101000a90046001600160a01b03166001600160a01b0316630c51dde4678ac7230489e800006040518263ffffffff1660e01b81526004016000604051808303818588803b15801561017c57600080fd5b505af1158015610190573d6000803e3d6000fd5b505050505056fea2646970667358221220d2c1f6bbb76e04517f0e5460a2bbea2f52cf4ba6e5c148446ead205a8dbc348164736f6c63430007060033",
+  "deployedBytecode": "0x6080604052600436106100435760003560e01c80631048909e1461004f57806312065fe014610080578063b862275c146100a7578063e2247bd1146100dc5761004a565b3661004a57005b600080fd5b34801561005b57600080fd5b506100646100f1565b604080516001600160a01b039092168252519081900360200190f35b34801561008c57600080fd5b50610095610100565b60408051918252519081900360200190f35b3480156100b357600080fd5b506100da600480360360208110156100ca57600080fd5b50356001600160a01b0316610104565b005b3480156100e857600080fd5b506100da610126565b6000546001600160a01b031681565b4790565b600080546001600160a01b0319166001600160a01b0392909216919091179055565b60008054906101000a90046001600160a01b03166001600160a01b0316630c51dde4678ac7230489e800006040518263ffffffff1660e01b81526004016000604051808303818588803b15801561017c57600080fd5b505af1158015610190573d6000803e3d6000fd5b505050505056fea2646970667358221220d2c1f6bbb76e04517f0e5460a2bbea2f52cf4ba6e5c148446ead205a8dbc348164736f6c63430007060033",
+  "devdoc": {
+    "details": "WARNING Only for testing purposes.",
+    "kind": "dev",
+    "methods": {},
+    "title": "RewardsDistribution test contract",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 13,
+        "contract": "contracts/test/RewardsDistribution.sol:RewardsDistribution",
+        "label": "shyftStaking",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_contract(IShyftStaking)6"
+      }
+    ],
+    "types": {
+      "t_contract(IShyftStaking)6": {
+        "encoding": "inplace",
+        "label": "contract IShyftStaking",
+        "numberOfBytes": "20"
+      }
+    }
+  }
+}

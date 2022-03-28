@@ -56,6 +56,7 @@
     "deploy:ethereum:reset": "hardhat deploy --network mainnet --reset",
     "deploy:ethereum:tag": "sh -c 'hardhat deploy --network mainnet --tags ${0}'",
     "deploy:ethereum:tag:reset": "sh -c 'hardhat deploy --network mainnet --tags ${0} --reset'",
+    "deploy:shyfttest": "hardhat deploy --network shyfttest",
     "dev": "hardhat node --tags v0.1.0 --watch --export contractsInfo.json",
     "logs": "hardhat remove-logs",
     "clean": "hardhat clean",

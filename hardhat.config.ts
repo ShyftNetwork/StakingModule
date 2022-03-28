@@ -94,6 +94,11 @@ const config: HardhatUserConfig = {
       tags: ['production'],
       accounts: accounts('mainnet'),
     },
+    shyfttest: {
+      url: 'https://rpc.testnet.shyft.network',
+      chainId: 11437,
+      accounts: accounts('mainnet'),
+    },
     fork: {
       url: node_url('fork'),
     },
