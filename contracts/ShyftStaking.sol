@@ -527,17 +527,17 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
       return (unbondingIds, offset);
     }
 
-    uint256 to_index = offset.add(length);
+    uint256 toIndex = offset.add(length);
 
-    if (to_index > unbondingIdsLength) {
-      to_index = unbondingIdsLength;
+    if (toIndex > unbondingIdsLength) {
+      toIndex = unbondingIdsLength;
     }
 
-    uint256[] memory unbondingIds = new uint256[](to_index.sub(offset));
-    for (uint256 i = offset; i < to_index; i++) {
+    uint256[] memory unbondingIds = new uint256[](toIndex.sub(offset));
+    for (uint256 i = offset; i < toIndex; i++) {
       unbondingIds[i.sub(offset)] = unbondingIdsPerAddress[staker][i];
     }
 
-    return (unbondingIds, to_index);
+    return (unbondingIds, toIndex);
   }
 }
