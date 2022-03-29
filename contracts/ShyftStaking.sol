@@ -7,7 +7,6 @@ import "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
 import "@openzeppelin/contracts/math/SafeMath.sol";
 import {IShyftDao} from './interfaces/IShyftDao.sol';
 import {IPriceFeeder} from './interfaces/IPriceFeeder.sol';
-import "hardhat/console.sol";
 
 /**
  * @title ShyftStaking Contract
@@ -518,5 +517,27 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
 
   function getUnbondingIdsLength(address staker) external view returns (uint256) {
     return unbondingIdsPerAddress[staker].length;
+  }
+
+  function getUnbondingIds(address staker, uint256 offset, uint256 length) external view returns (uint256[] memory, uint256) {
+    uint256 unbondingIdsLength = unbondingIdsPerAddress[staker].length;
+
+    if (offset > unbondingIdsLength.sub(1)) {
+      uint256[] memory unbondingIds = new uint256[](0);
+      return (unbondingIds, offset);
+    }
+
+    uint256 to_index = offset.add(length);
+
+    if (length > unbondingIdsLength.sub(offset)) {
+      to_index = unbondingIdsLength;
+    }
+
+    uint256[] memory unbondingIds = new uint256[](to_index.sub(offset));
+    for (uint256 i = offset; i < to_index; i++) {
+      unbondingIds[i] = unbondingIdsPerAddress[staker][i];
+    }
+
+    return (unbondingIds, to_index);
   }
 }
