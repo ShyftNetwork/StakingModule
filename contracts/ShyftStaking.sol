@@ -522,7 +522,7 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
   function getUnbondingIds(address staker, uint256 offset, uint256 length) external view returns (uint256[] memory, uint256) {
     uint256 unbondingIdsLength = unbondingIdsPerAddress[staker].length;
 
-    if (offset > unbondingIdsLength.sub(1)) {
+    if (offset >= unbondingIdsLength) {
       uint256[] memory unbondingIds = new uint256[](0);
       return (unbondingIds, offset);
     }
@@ -535,7 +535,7 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
 
     uint256[] memory unbondingIds = new uint256[](to_index.sub(offset));
     for (uint256 i = offset; i < to_index; i++) {
-      unbondingIds[i] = unbondingIdsPerAddress[staker][i];
+      unbondingIds[i.sub(offset)] = unbondingIdsPerAddress[staker][i];
     }
 
     return (unbondingIds, to_index);
