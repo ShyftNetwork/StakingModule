@@ -23,7 +23,7 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
   // The duration of a period.
   uint256 public rewardsDuration;
   // The time needed to be able to unstake after calling unbond.
-  uint256 public unbondingPeriod;
+  uint256 public constant unbondingPeriod = 28 days;
   // The timestamp that the rewards were updated.
   uint256 public lastUpdateTime;
   // The reward amount for every Shft that is staked.
@@ -84,7 +84,7 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
   uint256 public totalPrePurchasersAmountToBeStaked;
 
   // True if prepurchasers mode is on, false otherwise.
-  bool prePurchasersModeOn;
+  bool public prePurchasersModeOn;
 
   /**
    * @notice Initialize the contract.
@@ -118,7 +118,6 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
     lowestVotingBoundPrice = lowestVotingBoundPrice_;
 
     prePurchasersModeOn = true;
-    unbondingPeriod = 28 days;
   }
 
   /* ======================================================= MODIFIERS ====================================================== */
@@ -264,7 +263,14 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
 
     emit Unstaked(unbondingId, amount);
 
-    msg.sender.transfer(amount);
+    if (prePurchasersModeOn) {
+      require(amount <= address(this).balance.sub(_totalSupply.sub(totalPrePurchasersAmountToBeStaked)), "Wrong Amount");
+    } else {
+      require(amount <= address(this).balance.sub(_totalSupply), "Wrong Amount");
+    }
+
+    (bool sent,) = msg.sender.call{value: amount}("");
+    require(sent, "Failed to send Ether");
   }
 
   /**
@@ -313,7 +319,8 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
 
     emit RewardAdded(reward);
 
-    msg.sender.transfer(msg.value.sub(reward));
+    (bool sent,) = msg.sender.call{value: msg.value.sub(reward)}("");
+    require(sent, "Failed to send Ether");
   }
 
   /**
@@ -414,14 +421,19 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
    * @notice already farmed rewards, which are returned back to the rewardsDistribution contract.
    */
   function finishPrePurchasersMode() external onlyOwner onlyAfterRelease onlyPrePurchaserModeOn {
+    require(lastUpdateTime > 0, "Cannot finish prepurchasers mode yet");
+
     prePurchasersModeOn = false;
 
     uint256 rewardsToBeReturned = totalPrePurchasersAmountToBeStaked.mul(rewardPerShft()).div(1e18);
+    require(rewardsToBeReturned <= address(this).balance.sub(_totalSupply.sub(totalPrePurchasersAmountToBeStaked)), "Wrong Amount");
+
     uint256 newTotalSupply = _totalSupply.sub(totalPrePurchasersAmountToBeStaked);
     rewardRate = rewardRate.mul(newTotalSupply).div(_totalSupply);
     _totalSupply = newTotalSupply;
 
-    address(uint160(rewardsDistribution)).transfer(rewardsToBeReturned);
+    (bool sent,) = rewardsDistribution.call{value: rewardsToBeReturned}("");
+    require(sent, "Failed to send Ether");
 
     emit PrepurchasersModeFinished(rewardsToBeReturned);
   }
@@ -454,7 +466,15 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
     uint256 reward = rewards[msg.sender];
     if (reward > 0) {
       rewards[msg.sender] = 0;
-      msg.sender.transfer(reward);
+
+      if (prePurchasersModeOn) {
+        require(reward <= address(this).balance.sub(_totalSupply.sub(totalPrePurchasersAmountToBeStaked)), "Wrong Amount");
+      } else {
+        require(reward <= address(this).balance.sub(_totalSupply), "Wrong Amount");
+      }
+
+      (bool sent,) = msg.sender.call{value: reward}("");
+      require(sent, "Failed to send Ether");
 
       emit RewardPaid(msg.sender, reward);
     }
@@ -475,6 +495,9 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
   }
 
   function rewardPerShft() public view returns (uint256) {
+    if (lastUpdateTime == 0) {
+      return 0;
+    }
     if (_totalSupply == 0) {
       return rewardPerShftStored;
     }
@@ -490,5 +513,31 @@ contract ShyftStaking is Initializable, OwnableUpgradeable, ReentrancyGuardUpgra
 
   function getRewardForDuration() external view returns (uint256) {
     return rewardRate.mul(rewardsDuration);
+  }
+
+  function getUnbondingIdsLength(address staker) external view returns (uint256) {
+    return unbondingIdsPerAddress[staker].length;
+  }
+
+  function getUnbondingIds(address staker, uint256 offset, uint256 length) external view returns (uint256[] memory, uint256) {
+    uint256 unbondingIdsLength = unbondingIdsPerAddress[staker].length;
+
+    if (offset >= unbondingIdsLength) {
+      uint256[] memory unbondingIds = new uint256[](0);
+      return (unbondingIds, offset);
+    }
+
+    uint256 toIndex = offset.add(length);
+
+    if (toIndex > unbondingIdsLength) {
+      toIndex = unbondingIdsLength;
+    }
+
+    uint256[] memory unbondingIds = new uint256[](toIndex.sub(offset));
+    for (uint256 i = offset; i < toIndex; i++) {
+      unbondingIds[i.sub(offset)] = unbondingIdsPerAddress[staker][i];
+    }
+
+    return (unbondingIds, toIndex);
   }
 }
