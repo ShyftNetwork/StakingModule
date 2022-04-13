@@ -40,3 +40,8 @@ yarn deploy:rinkeby
 # Verify contracts in etherscan
 yarn verify:rinkeby --api-key <etherscan api key>
 ```
+
+## Audit
+
+2022 audit results
+```https://github.com/ShyftNetwork/StakingModule/blob/master/Shyft%20audit%20report_Staking_2022.pdf```
