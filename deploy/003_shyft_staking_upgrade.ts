@@ -43,11 +43,11 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
 
   // RewardsDistribution
   const rewardsDistribution = await deployRewardsDistribution()
-  //   const tx = {
-  //     to: rewardsDistribution.address,
-  //     value: ethers.utils.parseEther('8000'),
-  //   }
-  //   await deployerSigner.sendTransaction(tx)
+  const tx = {
+    to: rewardsDistribution.address,
+    value: ethers.utils.parseEther('8000'),
+  }
+  await deployerSigner.sendTransaction(tx)
   console.log('RewardsDistribution: ', rewardsDistribution.address)
 
   // ShyftDAO
