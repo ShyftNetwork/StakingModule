@@ -5,6 +5,7 @@ cache/
 types/contracts/
 package-lock.json
 .env
+.openzeppelin
 .vscode
 yarn-error.log
 yarn.lock

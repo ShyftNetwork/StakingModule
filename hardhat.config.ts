@@ -1,17 +1,20 @@
-import * as dotenv from 'dotenv';
-dotenv.config({path: __dirname + '/.env'});
+import * as dotenv from 'dotenv'
+dotenv.config({ path: __dirname + '/.env' })
 
-import {HardhatUserConfig} from 'hardhat/types';
-import '@nomiclabs/hardhat-ethers';
-import '@nomiclabs/hardhat-web3';
+import { HardhatUserConfig } from 'hardhat/config'
+import '@nomiclabs/hardhat-waffle'
+import '@nomiclabs/hardhat-ethers'
+import '@nomiclabs/hardhat-web3'
+import '@nomiclabs/hardhat-etherscan'
 
-import 'hardhat-deploy';
-import 'hardhat-gas-reporter';
-import 'hardhat-contract-sizer';
-import '@typechain/hardhat';
-import 'solidity-coverage';
+import 'hardhat-deploy'
+import 'hardhat-gas-reporter'
+import 'hardhat-contract-sizer'
+import '@openzeppelin/hardhat-upgrades'
+import '@typechain/hardhat'
+import 'solidity-coverage'
 
-import {node_url, accounts} from './utils/network';
+import { node_url, accounts } from './utils/network'
 
 const config: HardhatUserConfig = {
   defaultNetwork: 'hardhat',
@@ -94,6 +97,11 @@ const config: HardhatUserConfig = {
       tags: ['production'],
       accounts: accounts('mainnet'),
     },
+    shyfttest: {
+      url: 'https://rpc.testnet.shyft.network',
+      chainId: 11437,
+      accounts: accounts('mainnet'),
+    },
     fork: {
       url: node_url('fork'),
     },
@@ -137,7 +145,7 @@ const config: HardhatUserConfig = {
     target: 'ethers-v5',
   },
   mocha: {
-    timeout: 0,
+    timeout: 800000,
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY || '',
@@ -147,6 +155,6 @@ const config: HardhatUserConfig = {
     runOnCompile: true,
     disambiguatePaths: false,
   },
-};
+}
 
-export default config;
+export default config
