@@ -16,6 +16,9 @@ export const getSigners = async () => {
     prePurchaser2Signer: signers[6],
     prePurchaser3Signer: signers[7],
     rewardProviderSigner: signers[8],
+    priceFeederDeployerSigner: signers[0],
+    rewardsDistributionDeployerSigner: signers[1],
+    shyftDaoDistributionDeployerSigner: signers[2],
   };
 };
 

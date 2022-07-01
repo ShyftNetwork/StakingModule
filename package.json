@@ -20,6 +20,8 @@
     "deploy:local": "hardhat deploy --network localhost",
     "deploy:local:reset": "hardhat deploy --network localhost --reset",
     "deploy:local:tag": "sh -c 'hardhat deploy --network localhost --tags ${0}'",
+    "deploy:ganache": "hardhat deploy --network ganache",
+    "deploy:hardhat": "hardhat deploy",
     "deploy:mumbai": "hardhat deploy --network mumbai",
     "deploy:mumbai:reset": "hardhat deploy --network mumbai --reset",
     "deploy:mumbai:tag": "sh -c 'hardhat deploy --network mumbai --tags ${0}'",

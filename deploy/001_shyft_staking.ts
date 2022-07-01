@@ -12,15 +12,21 @@ import {getCurrentTimestamp} from '../tests/helpers/time';
 
 const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
   const {deployments, getNamedAccounts} = hre;
-  const {deploy, get} = deployments;
+  const {deploy, get, catchUnknownSigner} = deployments;
 
-  const {deployer, proxyOwner} = await getNamedAccounts();
+  const {priceFeederDeployer, rewardsDistributionDeployer, shyftDaoDistributionDeployer, shyftStakingDeployer, shyftStakingOwner} = await getNamedAccounts();
+
+  console.log("priceFeederDeployer :: " + priceFeederDeployer);
+  console.log("rewardsDistributionDeployer :: " + rewardsDistributionDeployer);
+  console.log("shyftDaoDistributionDeployer :: " + shyftDaoDistributionDeployer);
+  console.log("shyftStakingDeployer :: " + shyftStakingDeployer);
+  console.log("shyftStakingOwner :: " + shyftStakingOwner);
 
   let contractName = 'PriceFeeder';
 
   await deploy(contractName, {
     contract: contractName,
-    from: deployer,
+    from: priceFeederDeployer,
     log: true,
   });
 
@@ -28,7 +34,7 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
 
   await deploy(contractName, {
     contract: contractName,
-    from: deployer,
+    from: rewardsDistributionDeployer,
     log: true,
   });
 
@@ -36,7 +42,7 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
 
   await deploy(contractName, {
     contract: contractName,
-    from: deployer,
+    from: shyftDaoDistributionDeployer,
     log: true,
   });
 
@@ -48,25 +54,27 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
   const rewardsDistributionAddress = (await get('RewardsDistribution')).address;
   const shyftDaoAddress = (await get('ShyftDao')).address;
 
-  await deploy(contractName, {
-    contract: contractName,
-    from: deployer,
-    proxy: {
-      owner: proxyOwner,
-      methodName: 'initialize',
-      proxyContract: 'OpenZeppelinTransparentProxy',
-    },
-    args: [
-      rewardsDistributionAddress,
-      shyftDaoAddress,
-      priceFeederAddress,
-      timestampForRelease,
-      REWARDS_DURATION,
-      REWARDS_AMOUNT,
-      LOWEST_VOTING_BOUND_PRICE,
-    ],
-    log: true,
-  });
+  await catchUnknownSigner(
+      deploy(contractName, {
+        contract: contractName,
+        from: shyftStakingDeployer,
+        proxy: {
+          owner: shyftStakingOwner,
+          methodName: 'initialize',
+          proxyContract: 'OpenZeppelinTransparentProxy',
+        },
+        args: [
+          rewardsDistributionAddress,
+          shyftDaoAddress,
+          priceFeederAddress,
+          timestampForRelease,
+          REWARDS_DURATION,
+          REWARDS_AMOUNT,
+          LOWEST_VOTING_BOUND_PRICE,
+        ],
+        log: true,
+      })
+  );
   return true;
 };
 

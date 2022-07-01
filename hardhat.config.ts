@@ -13,8 +13,23 @@ import 'solidity-coverage';
 
 import {node_url, accounts} from './utils/network';
 
+let PVT_priceFeederDeployer:string = process.env.PVT_PRICEFEEDERDEPLOYER || "";
+let PVT_rewardsDistributionDeployer:string = process.env.PVT_REWARDSDISTRIBUTIONDEPLOYER || "";
+let PVT_shyftDaoDistributionDeployer:string = process.env.PVT_SHYFTDAODISTRIBUTIONDEPLOYER || "";
+let PVT_shyftStakingDeployer:string = process.env.PVT_SHYFTSTAKINGDEPLOYER || "";
+let PVT_shyftStakingOwner:string = process.env.PVT_SHYFTSTAKINGOWNER || "";
+let PVT_fundingAddress:string = process.env.PVT_FUNDINGADDRESS || "";
+
+
+console.log("found :: PVT_priceFeederDeployer :: " + PVT_priceFeederDeployer);
+console.log("found :: PVT_rewardsDistributionDeployer :: " + PVT_rewardsDistributionDeployer);
+console.log("found :: PVT_shyftDaoDistributionDeployer :: " + PVT_shyftDaoDistributionDeployer);
+console.log("found :: PVT_shyftStakingDeployer :: " + PVT_shyftStakingDeployer);
+console.log("found :: PVT_shyftStakingOwner :: " + PVT_shyftStakingOwner);
+console.log("found :: PVT_fundingAddress :: " + PVT_fundingAddress);
+
 const config: HardhatUserConfig = {
-  defaultNetwork: 'hardhat',
+  defaultNetwork: 'ganache',
   networks: {
     hardhat: {
       // forking: {
@@ -28,7 +43,7 @@ const config: HardhatUserConfig = {
       live: false,
       saveDeployments: true,
       tags: ['local'],
-      accounts: accounts('localhost'),
+      accounts: [PVT_priceFeederDeployer, PVT_rewardsDistributionDeployer, PVT_shyftDaoDistributionDeployer, PVT_shyftStakingDeployer, PVT_shyftStakingOwner, PVT_fundingAddress]//accounts('localhost'),
     },
     kovan: {
       url: node_url('kovan'),
@@ -108,6 +123,12 @@ const config: HardhatUserConfig = {
     prePurchaser2: 6,
     prePurchaser3: 7,
     rewardProvider: 8,
+    priceFeederDeployer: 0,
+    rewardsDistributionDeployer: 1,
+    shyftDaoDistributionDeployer: 2,
+    shyftStakingDeployer: 3,
+    shyftStakingOwner: 4,
+    fundingAddress: 5,
   },
   paths: {
     artifacts: './artifacts',

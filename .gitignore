@@ -14,3 +14,4 @@ deployments/localhost/
 contractsInfo.json
 coverage/
 coverage.json
+/deployments
