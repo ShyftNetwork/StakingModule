@@ -9,6 +9,8 @@ import {
   PREPURCHASERS_AFTER_PERIOD,
 } from '../utils/constants';
 import {getCurrentTimestamp} from '../tests/helpers/time';
+import {ethers} from "hardhat";
+import {SignerWithAddress} from "@nomiclabs/hardhat-ethers/src/signers";
 
 const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
   const {deployments, getNamedAccounts} = hre;
@@ -21,6 +23,29 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
   console.log("shyftDaoDistributionDeployer :: " + shyftDaoDistributionDeployer);
   console.log("shyftStakingDeployer :: " + shyftStakingDeployer);
   console.log("shyftStakingOwner :: " + shyftStakingOwner);
+
+  const signers = await ethers.getSigners();
+  const fundingAddressSigner = signers[5];
+
+
+  async function sendFunding(_fromSigner:any, _toAddress:string, _amount:BigNumber) {
+
+    const tx = {
+      to: _toAddress,
+      value: _amount
+    }
+
+    await _fromSigner.sendTransaction(tx);
+    console.log("sent " + ethers.utils.formatEther(_amount) + " to: " + _toAddress);
+  }
+
+  let fundDeployerAmount = ethers.utils.parseEther("1");
+
+  await sendFunding(fundingAddressSigner, priceFeederDeployer, fundDeployerAmount);
+  await sendFunding(fundingAddressSigner, rewardsDistributionDeployer, fundDeployerAmount);
+  await sendFunding(fundingAddressSigner, shyftDaoDistributionDeployer, fundDeployerAmount);
+  await sendFunding(fundingAddressSigner, shyftStakingDeployer, fundDeployerAmount);
+  await sendFunding(fundingAddressSigner, shyftStakingOwner, fundDeployerAmount);
 
   let contractName = 'PriceFeeder';
 

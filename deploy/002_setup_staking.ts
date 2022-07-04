@@ -76,7 +76,7 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
   console.log("shyftStakingContract owner :: " + (await shyftStakingContract.owner()));
 
   await shyftStakingContract.setRewardsAmount(newRewardAmount);
-  // await rewardsDistributionContract.provideRewards();
+  await rewardsDistributionContract.provideRewards();
 
   let rewardRateFound_after = await shyftStakingContract.rewardRate();
   let rewardsAmountFound_after = await shyftStakingContract.rewardsAmount();
@@ -85,6 +85,8 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
   console.log("after :: rewardRateFound :: " + rewardRateFound_after);
   console.log("after :: rewardsAmountFound :: " + ethers.utils.formatEther(rewardsAmountFound_after.toString()));
   console.log("after :: rewardsDurationFound :: " + rewardsDurationFound_after);
+
+  console.log("periodFinish :: " + (await shyftStakingContract.periodFinish()));
 
   return true;
 };

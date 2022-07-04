@@ -21,12 +21,12 @@ let PVT_shyftStakingOwner:string = process.env.PVT_SHYFTSTAKINGOWNER || "";
 let PVT_fundingAddress:string = process.env.PVT_FUNDINGADDRESS || "";
 
 
-console.log("found :: PVT_priceFeederDeployer :: " + PVT_priceFeederDeployer);
-console.log("found :: PVT_rewardsDistributionDeployer :: " + PVT_rewardsDistributionDeployer);
-console.log("found :: PVT_shyftDaoDistributionDeployer :: " + PVT_shyftDaoDistributionDeployer);
-console.log("found :: PVT_shyftStakingDeployer :: " + PVT_shyftStakingDeployer);
-console.log("found :: PVT_shyftStakingOwner :: " + PVT_shyftStakingOwner);
-console.log("found :: PVT_fundingAddress :: " + PVT_fundingAddress);
+// console.log("found :: PVT_priceFeederDeployer :: " + PVT_priceFeederDeployer);
+// console.log("found :: PVT_rewardsDistributionDeployer :: " + PVT_rewardsDistributionDeployer);
+// console.log("found :: PVT_shyftDaoDistributionDeployer :: " + PVT_shyftDaoDistributionDeployer);
+// console.log("found :: PVT_shyftStakingDeployer :: " + PVT_shyftStakingDeployer);
+// console.log("found :: PVT_shyftStakingOwner :: " + PVT_shyftStakingOwner);
+// console.log("found :: PVT_fundingAddress :: " + PVT_fundingAddress);
 
 const config: HardhatUserConfig = {
   defaultNetwork: 'ganache',
